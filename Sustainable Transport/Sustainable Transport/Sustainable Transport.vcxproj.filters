@@ -13,10 +13,71 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\Shaders">
+      <UniqueIdentifier>{e612c3c9-bdd3-42c2-a1a6-521e6c2efec4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Camera.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Mesh.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\meshAnim.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Model.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\modelAnim.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shader.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\stb_image.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Texture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
