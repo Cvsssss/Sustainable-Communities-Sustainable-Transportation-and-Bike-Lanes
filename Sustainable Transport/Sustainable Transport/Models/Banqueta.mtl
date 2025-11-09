@@ -1,303 +1,298 @@
-newmtl Baul:lambert15SG
+newmtl Banqueta:initialShadingGroup
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Baul.png
+map_Kd Banqueta(1).jpg
 Ni 1.00
-newmtl Baul:lambert17SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd MaderaBaul.png
-Ni 1.00
-newmtl Cajon:lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Blanco.png
-Ni 1.00
-newmtl Cajon:lambert5SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Manija.png
-Ni 1.00
-newmtl Garaje:initialShadingGroup
+newmtl BoteBasura:initialShadingGroup
 illum 4
 Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
-newmtl Garaje:lambert3SG
+newmtl BotedeReciclaje:initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl BotedeReciclaje:lambert1SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
+map_Kd BuzonDeCorreo(1).png
 Ni 1.00
-newmtl Garaje:lambert4SG
+newmtl BotedeReciclaje:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
+map_Kd BuzonDeCorreo.png
 Ni 1.00
-newmtl Garaje:lambert11SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd PortonyVentanas.png
-Ni 1.00
-newmtl Garaje:lambert12SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Ladrillos.png
-Ni 1.00
-newmtl Garaje:pasted__lambert9SG
+newmtl Edificio:Material_004
 illum 4
 Kd 0.00 0.00 0.00
 Ka 1.00 1.00 1.00
 Tf 1.00 1.00 1.00
-map_Kd Techo.png
-Ni 1.00
-newmtl Lampara:lambert3SG
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 250.00
+newmtl LetreroCalles1:initialShadingGroup
 illum 4
-Kd 0.00 0.00 0.00
+Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
 Ni 1.00
-newmtl Lampara:lambert21SG
+newmtl edificio2:Material
 illum 4
 Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
 Tf 1.00 1.00 1.00
-map_Kd ColorLampara.png
-Ni 1.00
-newmtl MarcoPuerta:tripo_mat_a563666a_548c_4b66_8aa9_e97d6bfa9f89
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 250.00
+newmtl edificio2:Material_001
 illum 4
-Kd 0.40 0.40 0.40
+Kd 0.80 0.80 0.80
 Ka 1.00 1.00 1.00
 Tf 1.00 1.00 1.00
 Ni 1.50
 Ks 0.50 0.50 0.50
-Ns 9.29
-newmtl MesaDeNoche1:lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Blanco.png
-Ni 1.00
-newmtl Puerta:tripo_mat_a563666a_548c_4b66_8aa9_e97d6bfa9f89
-illum 4
-Kd 0.40 0.40 0.40
-Ka 1.00 1.00 1.00
-Tf 1.00 1.00 1.00
-Ni 1.50
-Ks 0.50 0.50 0.50
-Ns 9.29
-newmtl TapaBaul1:lambert16SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Imagen_de_WhatsApp_2025-11-02_a_las_18.29.51_54dbfe92.jpg
-Ni 1.00
-newmtl TapaBaul1:lambert17SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd MaderaBaul.png
-Ni 1.00
+Ns 250.00
 newmtl initialShadingGroup
 illum 4
 Kd 0.50 0.50 0.50
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
-newmtl lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd ChatGPT_Image_29_oct_2025,_16_08_56.png
-Ni 1.00
 newmtl lambert3SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
+map_Kd Roca_Decorativa.png
 Ni 1.00
 newmtl lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
+map_Kd Cono.png
+Ni 1.00
+newmtl lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Cono(1).png
+Ni 1.00
+newmtl lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 8_BaseColor.jpg
 Ni 1.00
 newmtl lambert7SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Piso.png
+map_Kd 5_3_BaseColor.jpg
+Ni 1.00
+newmtl lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 8_3_BaseColor.jpg
 Ni 1.00
 newmtl lambert9SG
 illum 4
 Kd 0.00 0.00 0.00
-Ka 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Techo.png
+map_Kd BoteReciclaje(1).png
 Ni 1.00
 newmtl lambert10SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Blanco.png
+map_Kd BoteReciclaje.png
 Ni 1.00
 newmtl lambert11SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd PortonyVentanas.png
-Ni 1.00
-newmtl lambert12SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Ladrillos.png
+map_Kd Antena_Telecom.png
 Ni 1.00
 newmtl lambert13SG
 illum 4
 Kd 0.00 0.00 0.00
-Ka 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd ColorRepisas.png
+map_Kd Camara(1).png
+Ni 1.00
+newmtl lambert14SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Banqueta.png
 Ni 1.00
 newmtl lambert16SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Imagen_de_WhatsApp_2025-11-02_a_las_18.29.51_54dbfe92.jpg
+map_Kd Banqueta(1).jpg
 Ni 1.00
 newmtl lambert17SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd MaderaBaul.png
+map_Kd Banqueta(2).png
 Ni 1.00
-newmtl lambert18SG
+newmtl trafficlight:phong2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd TexturaParedCuarto.png
-Ni 1.00
-newmtl lambert19SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd ColorEstante.png
-Ni 1.00
-newmtl pasted__lambert9SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 1.00 1.00 1.00
-Tf 1.00 1.00 1.00
-map_Kd Techo.png
-Ni 1.00
-newmtl pasted__lambert9SG1
-illum 4
-Kd 0.00 0.00 0.00
-Ka 1.00 1.00 1.00
-Tf 1.00 1.00 1.00
-map_Kd Techo.png
-Ni 1.00
-newmtl pasted__lambert10SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Blanco.png
-Ni 1.00
-newmtl pasted__lambert10SG1
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Blanco.png
-Ni 1.00
-newmtl pasted__lambert16SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Imagen_de_WhatsApp_2025-11-02_a_las_18.29.51_54dbfe92.jpg
-Ni 1.00
-newmtl pasted__lambert17SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd MaderaBaul.png
-Ni 1.00
-newmtl pasted__pasted__lambert9SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 1.00 1.00 1.00
-Tf 1.00 1.00 1.00
-map_Kd Techo.png
-Ni 1.00
-newmtl pasted__pasted__lambert10SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Blanco.png
-Ni 1.00
-newmtl rv_lamp_post_4:Lamp_post_metal_mat1SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-Ks 0.39 0.39 0.39
-Ns 0.06
-newmtl rv_lamp_post_4:Lamp_post_metal_mat3SG
-illum 4
-Kd 0.77 0.77 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-Ks 0.39 0.39 0.39
-Ns 0.06
-newmtl rv_lamp_post_4:Lamppost_glow1SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
-newmtl rv_lamp_post_4:blinn2SG
-illum 4
-Kd 0.69 0.69 0.69
-Ka 0.00 0.00 0.00
-Tf 0.44 0.44 0.44
 Ni 1.00
 Ks 0.50 0.50 0.50
-Ns 0.06
+Ns 18.00
+newmtl trafficlight:phong4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 5_3_BaseColor.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong14SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 8_3_BaseColor.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong15SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong16SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong17SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong18SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong20SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl trafficlight:phong21SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
