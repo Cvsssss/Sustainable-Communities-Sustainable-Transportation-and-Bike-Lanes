@@ -40,7 +40,7 @@ vn 0.000951 0.754753 -0.656009
 vn 0.000951 0.754753 -0.656009
 s 1
 g polySurface147 polySurface146
-usemtl initialShadingGroup
+usemtl BotedeReciclaje:lambert1SG
 f 1/1/1 2/2/2 7/3/3 6/4/4
 f 2/2/2 3/5/5 8/6/6 7/3/3
 f 3/5/5 4/7/7 9/8/8 8/6/6
