@@ -127,6 +127,7 @@ int main() {
 
 
 	// CARGA DE LOS MODELOS
+	/*
 	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	Model arbol((char*)"Models/arbol/arbol.obj");
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
@@ -160,8 +161,9 @@ int main() {
 	Model StopLight((char*)"Models/StopLight/StopLight.obj");
 	Model StopSign((char*)"Models/StopSign/StopSign.obj");
 	Model TapaBuzon((char*)"Models/TapaBuzon/TapaBuzon.obj");
+	*/
 	Model tope((char*)"Models/tope/tope.obj");
-	Model valla((char*)"Models/valla/valla.obj");
+	//Model valla((char*)"Models/valla/valla.obj");
 
 
 	// Buffers
@@ -227,12 +229,14 @@ int main() {
 		float spacing = 5.0f;
 		float currentX = 0.0f;
 
-		// --- SCOOTER (ACTIVO) ---
+		// --- SCOOTER  ---
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		scooter.Draw(lightingShader);
 		currentX += spacing;
+		*/
 
 		// --- Antena_Telecom ---
 		/*
@@ -240,8 +244,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Antena_Telecom.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Arbol ---
 		/*
@@ -249,8 +253,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		arbol.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Bancamadera ---
 		/*
@@ -258,8 +262,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bancamadera.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Banqueta ---
 		/*
@@ -267,8 +271,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Bolardocar ---
 		/*
@@ -276,8 +280,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bolardocar.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Bolardopeq ---
 		/*
@@ -285,8 +289,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bolardopeq.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- BoteBasura ---
 		/*
@@ -294,8 +298,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BoteBasura.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- BotedeReciclaje ---
 		/*
@@ -303,8 +307,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BotedeReciclaje.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Bulardo ---
 		/*
@@ -312,8 +316,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bulardo.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- BuzonDeCorreo ---
 		/*
@@ -321,8 +325,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BuzonDeCorreo.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- CamaraSeguridad ---
 		/*
@@ -330,8 +334,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		CamaraSeguridad.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Casco ---
 		/*
@@ -339,8 +343,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		casco.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Cono ---
 		/*
@@ -348,8 +352,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cono.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- CuboMoldeParaCasa ---
 		/*
@@ -357,8 +361,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		CuboMoldeParaCasa.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Edificio ---
 		/*
@@ -366,8 +370,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Edificio.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Edificio2 ---
 		/*
@@ -375,8 +379,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		edificio2.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- EdificioSinDiseno ---
 		/*
@@ -384,8 +388,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		EdificioSinDiseno.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Hidrante ---
 		/*
@@ -393,8 +397,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		hidrante.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Jardinera ---
 		/*
@@ -402,8 +406,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		jardinera.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- LetreroAutobus ---
 		/*
@@ -411,8 +415,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroAutobus.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- LetreroCalle ---
 		/*
@@ -420,8 +424,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroCalle.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- LetreroVelocidad ---
 		/*
@@ -429,8 +433,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroVelocidad.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Mesa ---
 		/*
@@ -438,8 +442,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		mesa.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Pasto ---
 		/*
@@ -447,8 +451,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		pasto.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Piedra_Decorativa ---
 		/*
@@ -456,8 +460,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Piedra_Decorativa.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Placas ---
 		/*
@@ -465,8 +469,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		placas.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Poste ---
 		/*
@@ -474,8 +478,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		poste.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- PosteAlto ---
 		/*
@@ -483,8 +487,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		posteAlto.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- RampaDiscapacitados ---
 		/*
@@ -492,8 +496,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		RampaDiscapacitados.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- StopLight ---
 		/*
@@ -501,8 +505,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		StopLight.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- StopSign ---
 		/*
@@ -510,8 +514,8 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		StopSign.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- TapaBuzon ---
 		/*
@@ -519,16 +523,15 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		TapaBuzon.Draw(lightingShader);
-		*/
 		currentX += spacing;
+		*/
 
 		// --- Tope ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
-		*/
 		currentX += spacing;
 
 		// --- Valla ---
