@@ -142,16 +142,18 @@
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.frag" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.vs" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.frag" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.vs" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.frag" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.vs" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.frag" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.vs" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.frag" />
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.vs" />
+    <None Include="Shaders\anim.frag" />
+    <None Include="Shaders\anim.vs" />
+    <None Include="Shaders\lamp.frag" />
+    <None Include="Shaders\lamp.vs" />
+    <None Include="Shaders\lamp2.frag" />
+    <None Include="Shaders\lamp2.vs" />
+    <None Include="Shaders\lighting.frag" />
+    <None Include="Shaders\lighting.vs" />
+    <None Include="Shaders\modelLoading.frag" />
+    <None Include="Shaders\modelLoading.vs" />
+    <None Include="Shaders\SkyBox.frag" />
+    <None Include="Shaders\SkyBox.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

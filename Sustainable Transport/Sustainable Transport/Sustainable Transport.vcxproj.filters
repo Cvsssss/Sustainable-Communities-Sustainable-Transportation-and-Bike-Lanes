@@ -49,34 +49,40 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.frag">
+    <None Include="Shaders\anim.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\anim.vs">
+    <None Include="Shaders\anim.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.frag">
+    <None Include="Shaders\lamp.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lamp.vs">
+    <None Include="Shaders\lamp.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.frag">
+    <None Include="Shaders\lamp2.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\lighting.vs">
+    <None Include="Shaders\lamp2.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.frag">
+    <None Include="Shaders\lighting.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\modelLoading.vs">
+    <None Include="Shaders\lighting.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.frag">
+    <None Include="Shaders\modelLoading.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shaders\SkyBox.vs">
+    <None Include="Shaders\modelLoading.vs">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBox.frag">
+      <Filter>Archivos de origen\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBox.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
   </ItemGroup>
