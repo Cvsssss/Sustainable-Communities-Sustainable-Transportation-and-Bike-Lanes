@@ -92,6 +92,27 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd tronco.png
 Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd plasticneg.jpg
+Ni 1.00
+newmtl lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd amatop.jpg
+Ni 1.00
+newmtl lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd plasticneg.jpg
+Ni 1.00
 newmtl pasted__pasted__standardSurface2SG1
 illum 4
 Kd 0.00 0.00 0.00
@@ -121,7 +142,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd mettub.jpg
+map_Kd metalText.jpg
 Ni 1.00
 Ks 0.50 0.50 0.50
 newmtl pasted__standardSurface2SG
@@ -153,7 +174,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd negroPlacas.jpg
+map_Kd matnegro.jpg
 Ni 1.00
 Ks 0.50 0.50 0.50
 Ns 18.00
@@ -162,7 +183,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd mettub.jpg
+map_Kd metalText.jpg
 Ni 1.00
 Ks 0.50 0.50 0.50
 newmtl standardSurface2SG
@@ -178,12 +199,6 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 0.00
 newmtl standardSurface4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 0.00
-newmtl standardSurface5SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00

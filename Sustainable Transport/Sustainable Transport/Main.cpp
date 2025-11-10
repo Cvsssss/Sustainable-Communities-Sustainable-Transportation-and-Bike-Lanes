@@ -153,7 +153,9 @@ int main() {
 	Model mesa((char*)"Models/mesa/mesa.obj");
 	Model pasto((char*)"Models/pasto/pasto.obj");
 	Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
+	*/
 	Model placas((char*)"Models/placas/placas.obj");
+	/*
 	Model poste((char*)"Models/poste/poste.obj");
 	Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
 	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
@@ -161,10 +163,9 @@ int main() {
 	Model StopLight((char*)"Models/StopLight/StopLight.obj");
 	Model StopSign((char*)"Models/StopSign/StopSign.obj");
 	Model TapaBuzon((char*)"Models/TapaBuzon/TapaBuzon.obj");
-	*/
 	Model tope((char*)"Models/tope/tope.obj");
-	//Model valla((char*)"Models/valla/valla.obj");
-
+	Model valla((char*)"Models/valla/valla.obj");
+	*/
 
 	// Buffers
 	GLuint VBO, VAO, skyboxVAO, skyboxVBO;
@@ -464,13 +465,13 @@ int main() {
 		*/
 
 		// --- Placas ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		placas.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- Poste ---
 		/*
@@ -527,12 +528,13 @@ int main() {
 		*/
 
 		// --- Tope ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
 		currentX += spacing;
+		*/
 
 		// --- Valla ---
 		/*
