@@ -163,9 +163,10 @@ int main() {
 	Model StopLight((char*)"Models/StopLight/StopLight.obj");
 	Model StopSign((char*)"Models/StopSign/StopSign.obj");
 	Model TapaBuzon((char*)"Models/TapaBuzon/TapaBuzon.obj");
-	Model tope((char*)"Models/tope/tope.obj");
-	Model valla((char*)"Models/valla/valla.obj");
 	*/
+	Model tope((char*)"Models/tope/tope.obj");
+	//Model valla((char*)"Models/valla/valla.obj");
+	
 
 	// Buffers
 	GLuint VBO, VAO, skyboxVAO, skyboxVBO;
@@ -402,7 +403,7 @@ int main() {
 		*/
 
 		// --- Jardinera ---
-		/*
+		                         /*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -464,6 +465,7 @@ int main() {
 		currentX += spacing;
 		*/
 
+	
 		// --- Placas ---
 		
 		model = glm::mat4(1.0f);
@@ -528,13 +530,12 @@ int main() {
 		*/
 
 		// --- Tope ---
-		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		   
 
 		// --- Valla ---
 		/*
