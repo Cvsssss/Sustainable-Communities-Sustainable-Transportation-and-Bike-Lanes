@@ -128,6 +128,18 @@ int main() {
 
 	// CARGA DE LOS MODELOS
 	
+	//Model Maqueta((char*)"Models/PrimeraEntrega/Maqueta.obj");
+	
+	Model Parte1((char*)"Models/Maqueta/Parte1.obj");
+	Model Parte2((char*)"Models/Maqueta/Parte2.obj");
+	Model Parte3((char*)"Models/Maqueta/Parte3.obj");
+	Model Parte4((char*)"Models/Maqueta/Parte4.obj");
+	Model Parte5((char*)"Models/Maqueta/Parte5.obj");
+	Model Parte6((char*)"Models/Maqueta/Parte6.obj");
+	Model Parte7((char*)"Models/Maqueta/Parte7.obj");
+	Model Parte8((char*)"Models/Maqueta/Parte8.obj");
+	Model Parte9((char*)"Models/Maqueta/Parte9.obj");
+	/*
 	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
@@ -190,7 +202,8 @@ int main() {
 	Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
 	Model tope((char*)"Models/tope/tope.obj");
 	Model valla((char*)"Models/valla/valla.obj");
-	
+	*/
+
 
 	// Buffers
 	GLuint VBO, VAO, skyboxVAO, skyboxVBO;
@@ -230,7 +243,7 @@ int main() {
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "material.shininess"), 32.0f);
 
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.8f, 0.8f, 0.8f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.15f, 0.15f, 0.15f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
 
@@ -252,9 +265,73 @@ int main() {
 		// RENDERIZADO DE MODELOS 
 
 		glm::mat4 model(1.0f);
-		float spacing = 5.0f;
+		float spacing = 0.0f;
 		float currentX = 0.0f;
 
+
+		// --- Maqueta ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte1.Draw(lightingShader);
+		currentX += spacing;
+		*/
+		// --- Maqueta ---
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte1.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte2.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte3.Draw(lightingShader);
+		currentX += spacing;
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte4.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte5.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte6.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte7.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte8.Draw(lightingShader);
+		currentX += spacing;
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Parte9.Draw(lightingShader);
+		currentX += spacing;
 		
 
 		// --- Antena_Telecom ---
@@ -276,7 +353,7 @@ int main() {
 		*/
 
 		// --- Bancamadera ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -311,7 +388,7 @@ int main() {
 
 
 		//      -------------------
-
+		*/
 
 		// --- Bolardocar ---
 		/*
@@ -342,7 +419,7 @@ int main() {
 		*/
 
 		// --- BotedeReciclaje ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -381,7 +458,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BuzonDeCorreo.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
 
 		// --- CamaraSeguridad ---
 		/*
@@ -393,7 +470,7 @@ int main() {
 		*/
 
 		// --- Casco ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -408,6 +485,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cono.Draw(lightingShader);
 		currentX += spacing;
+		*/
 
 		// --- CuboMoldeParaCasa ---
 		/*
@@ -492,13 +570,13 @@ int main() {
 		*/
 
 		// --- Hidrante ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		hidrante.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Jardinera ---
 		/*
@@ -510,13 +588,13 @@ int main() {
 		*/
 
 		// --- LetreroAutobus ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroAutobus.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- LetreroCalle ---
 		/*
@@ -528,13 +606,14 @@ int main() {
 		*/
 
 		// --- LetreroVelocidad ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroVelocidad.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
+
 		// --- llantas ---
 		/*
 		model = glm::mat4(1.0f);
@@ -543,6 +622,8 @@ int main() {
 		llantas.Draw(lightingShader);
 		currentX += spacing;
 		*/
+
+		/*
 
 		// --- Mesa ---
 		
@@ -710,7 +791,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		valla.Draw(lightingShader);
-		
+		*/
 
 		// Dibujo Luces
 		lampShader.Use();
