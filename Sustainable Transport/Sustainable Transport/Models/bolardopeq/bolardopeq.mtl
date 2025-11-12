@@ -1,13 +1,9 @@
-# Blender 4.5.4 LTS MTL File: 'bolardopeq.blend'
-# www.blender.org
-
-newmtl aiStandardSurface1SG
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd DiamondPlate006B_4K-PNG_Color.png
-map_Ns DiamondPlate006B_4K-PNG_Roughness.png
-map_refl DiamondPlate006B_4K-PNG_Metalness.png
+newmtl phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bolardocar.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
