@@ -127,45 +127,69 @@ int main() {
 
 
 	// CARGA DE LOS MODELOS
-	/*
-	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
-	Model arbol((char*)"Models/arbol/arbol.obj");
+	
+	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
+	//Model arbol((char*)"Models/arbol/arbol.obj");
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
-	Model bolardocar((char*)"Models/bolardocar/bolardocar.obj");
-	Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
-	Model BoteBasura((char*)"Models/BoteBasura/BoteBasura.obj");
+
+	//BICICLETA
+	Model asiento((char*)"Models/bicicleta/asiento.obj");
+	Model cadena((char*)"Models/bicicleta/cadena.obj");
+	Model cuerpo((char*)"Models/bicicleta/cuerpo.obj");
+
+	//Model bolardocar((char*)"Models/bolardocar/bolardocar.obj");
+	//Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
+	//Model BoteBasura((char*)"Models/BoteBasura/BoteBasura.obj");
 	Model BotedeReciclaje((char*)"Models/BotedeReciclaje/BotedeReciclaje.obj");
+	Model boteVerdeBasura((char*)"Models/boteVerdeBasura/boteVerdeBasura.obj");
 	Model bulardo((char*)"Models/bulardo/bulardo.obj");
+	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
-	Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad.obj");
+	//Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad_Velocimetro.obj");
 	Model casco((char*)"Models/casco/casco.obj");
 	Model Cono((char*)"Models/Cono/Cono.obj");
-	Model CuboMoldeParaCasa((char*)"Models/CuboMoldeParaCasa/CuboMoldeParaCasa.obj");
+	//Model CuboMoldeParaCasa((char*)"Models/CuboMoldeParaCasa/CuboMoldeParaCasa.obj");
 	Model Edificio((char*)"Models/Edificio/Edificio.obj");
 	Model edificio2((char*)"Models/edificio2/edificio2.obj");
-	Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
+	Model edificio3((char*)"Models/edificio3/edificio3.obj");
+	Model edificio4((char*)"Models/edificio4/edificio4.obj");
+	Model edificio5((char*)"Models/edificio5/edificio5.obj");
+	Model edificio6((char*)"Models/edificio6/edificio6.obj");
+	Model edificio7((char*)"Models/edificio7/edificio7.obj"); 
+	// //Model edificio2((char*)"Models/edificio2/edificio2.obj");
+	//Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
 	Model hidrante((char*)"Models/hidrante/hidrante.obj");
-	Model jardinera((char*)"Models/jardinera/jardinera.obj");
+	//Model jardinera((char*)"Models/jardinera/jardinera.obj");
 	Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
-	Model LetreroCalle((char*)"Models/LetreroCalle/LetreroCalle.obj");
+	//Model LetreroCalle((char*)"Models/LetreroCalle/LetreroCalle.obj");
 	Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
+	Model llantas((char*)"Models/llantas/llantas.obj");
 	Model mesa((char*)"Models/mesa/mesa.obj");
+	Model palapa((char*)"Models/palapa/palapa.obj");
 	Model pasto((char*)"Models/pasto/pasto.obj");
+
+	//perro
+	Model DogBody((char*)"Models/perro/DogBody.obj");
+	Model DogHead((char*)"Models/perro/DogHead.obj");
+	Model DogLeftLegB((char*)"Models/perro/DogLeftLegB.obj");
+	Model DogLeftLegF((char*)"Models/perro/DogLeftLegF.obj");
+	Model DogRightLegB((char*)"Models/perro/DogRightLegB.obj");
+	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
+	Model DogTail((char*)"Models/perro/DogTail.obj");
+
 	Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
-	*/
 	Model placas((char*)"Models/placas/placas.obj");
-	/*
 	Model poste((char*)"Models/poste/poste.obj");
 	Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
 	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
 	Model scooter((char*)"Models/scooter/scooter.obj");
+	Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
 	Model StopLight((char*)"Models/StopLight/StopLight.obj");
 	Model StopSign((char*)"Models/StopSign/StopSign.obj");
-	Model TapaBuzon((char*)"Models/TapaBuzon/TapaBuzon.obj");
-	*/
+	Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
 	Model tope((char*)"Models/tope/tope.obj");
-	//Model valla((char*)"Models/valla/valla.obj");
+	Model valla((char*)"Models/valla/valla.obj");
 	
 
 	// Buffers
@@ -231,14 +255,7 @@ int main() {
 		float spacing = 5.0f;
 		float currentX = 0.0f;
 
-		// --- SCOOTER  ---
-		/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		scooter.Draw(lightingShader);
-		currentX += spacing;
-		*/
+		
 
 		// --- Antena_Telecom ---
 		/*
@@ -259,22 +276,42 @@ int main() {
 		*/
 
 		// --- Bancamadera ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bancamadera.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
 
 		// --- Banqueta ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
+		//    -------- BICCICLETA ------
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		asiento.Draw(lightingShader);
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		cadena.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		cuerpo.Draw(lightingShader);
+		
+
+
+		//      -------------------
+
 
 		// --- Bolardocar ---
 		/*
@@ -301,34 +338,50 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BoteBasura.Draw(lightingShader);
 		currentX += spacing;
+		currentX += spacing;
 		*/
 
 		// --- BotedeReciclaje ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BotedeReciclaje.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
+		// --- boteVerdeBasura ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		boteVerdeBasura.Draw(lightingShader);
+		currentX += spacing;
 
 		// --- Bulardo ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bulardo.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
+		// --- Bus ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Bus.Draw(lightingShader);
+		currentX += spacing;
 
 		// --- BuzonDeCorreo ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BuzonDeCorreo.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
 
 		// --- CamaraSeguridad ---
 		/*
@@ -340,22 +393,21 @@ int main() {
 		*/
 
 		// --- Casco ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		casco.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
 
 		// --- Cono ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cono.Draw(lightingShader);
 		currentX += spacing;
-		*/
 
 		// --- CuboMoldeParaCasa ---
 		/*
@@ -383,6 +435,52 @@ int main() {
 		edificio2.Draw(lightingShader);
 		currentX += spacing;
 		*/
+		
+		// --- Edificio3 ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio3.Draw(lightingShader);
+		currentX += spacing;
+
+
+		// --- Edificio4 ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio4.Draw(lightingShader);
+		currentX += spacing;
+		
+
+		// --- Edificio5 ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio5.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
+		// --- Edificio6 ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio6.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
+		// --- Edificio7 ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio7.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
 
 		// --- EdificioSinDiseno ---
 		/*
@@ -394,16 +492,16 @@ int main() {
 		*/
 
 		// --- Hidrante ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		hidrante.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- Jardinera ---
-		                         /*
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -412,13 +510,13 @@ int main() {
 		*/
 
 		// --- LetreroAutobus ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroAutobus.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- LetreroCalle ---
 		/*
@@ -430,40 +528,94 @@ int main() {
 		*/
 
 		// --- LetreroVelocidad ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		LetreroVelocidad.Draw(lightingShader);
 		currentX += spacing;
+		
+		// --- llantas ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		llantas.Draw(lightingShader);
+		currentX += spacing;
 		*/
 
 		// --- Mesa ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		mesa.Draw(lightingShader);
 		currentX += spacing;
-		*/
 
+		// --- palapa ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		palapa.Draw(lightingShader);
+		currentX += spacing;
+		
 		// --- Pasto ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		pasto.Draw(lightingShader);
 		currentX += spacing;
-		*/
 
-		// --- Piedra_Decorativa ---
-		/*
+		// ------------ PERRO ------------
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogBody.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogHead.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogLeftLegB.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogLeftLegF.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogRightLegB.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogRightLegF.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		DogTail.Draw(lightingShader);
+
+
+		// --------------------------------
+
+		// -- Piedra_Decorativa ---
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Piedra_Decorativa.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 	
 		// --- Placas ---
@@ -476,58 +628,73 @@ int main() {
 		
 
 		// --- Poste ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		poste.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- PosteAlto ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		posteAlto.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- RampaDiscapacitados ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		RampaDiscapacitados.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
+		// --- SCOOTER  ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		scooter.Draw(lightingShader);
+		currentX += spacing;
+
+		// --- scooterMoto  ---
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		scooterMoto.Draw(lightingShader);
+		currentX += spacing;
 
 		// --- StopLight ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		StopLight.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- StopSign ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		StopSign.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- TapaBuzon ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		TapaBuzon.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- Tope ---
 		model = glm::mat4(1.0f);
@@ -538,12 +705,12 @@ int main() {
 		   
 
 		// --- Valla ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		valla.Draw(lightingShader);
-		*/
+		
 
 		// Dibujo Luces
 		lampShader.Use();
