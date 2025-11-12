@@ -437,22 +437,22 @@ int main() {
 		*/
 		
 		// --- Edificio3 ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		edificio3.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
 
 		// --- Edificio4 ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		edificio4.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Edificio5 ---
 		/*
