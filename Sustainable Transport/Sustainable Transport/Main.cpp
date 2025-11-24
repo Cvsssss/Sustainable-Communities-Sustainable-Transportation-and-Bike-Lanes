@@ -129,7 +129,7 @@ int main() {
 	// CARGA DE LOS MODELOS
 	
 	//Model Maqueta((char*)"Models/PrimeraEntrega/Maqueta.obj");
-	
+	/*
 	Model Parte1((char*)"Models/Maqueta/Parte1.obj");
 	Model Parte2((char*)"Models/Maqueta/Parte2.obj");
 	Model Parte3((char*)"Models/Maqueta/Parte3.obj");
@@ -139,48 +139,52 @@ int main() {
 	Model Parte7((char*)"Models/Maqueta/Parte7.obj");
 	Model Parte8((char*)"Models/Maqueta/Parte8.obj");
 	Model Parte9((char*)"Models/Maqueta/Parte9.obj");
-	/*
-	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
+	*/
+	
+	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
-	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
-	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
+	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
+	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
+	/*
 	//BICICLETA
 	Model asiento((char*)"Models/bicicleta/asiento.obj");
 	Model cadena((char*)"Models/bicicleta/cadena.obj");
 	Model cuerpo((char*)"Models/bicicleta/cuerpo.obj");
+	*/
 
 	//Model bolardocar((char*)"Models/bolardocar/bolardocar.obj");
 	//Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
 	//Model BoteBasura((char*)"Models/BoteBasura/BoteBasura.obj");
-	Model BotedeReciclaje((char*)"Models/BotedeReciclaje/BotedeReciclaje.obj");
-	Model boteVerdeBasura((char*)"Models/boteVerdeBasura/boteVerdeBasura.obj");
-	Model bulardo((char*)"Models/bulardo/bulardo.obj");
-	Model Bus((char*)"Models/Bus/Bus.obj");
-	Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
+	//Model BotedeReciclaje((char*)"Models/BotedeReciclaje/BotedeReciclaje.obj");
+	//Model boteVerdeBasura((char*)"Models/boteVerdeBasura/boteVerdeBasura.obj");
+	//Model bulardo((char*)"Models/bulardo/bulardo.obj");
+	//Model Bus((char*)"Models/Bus/Bus.obj");
+	//Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
 	//Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad_Velocimetro.obj");
-	Model casco((char*)"Models/casco/casco.obj");
-	Model Cono((char*)"Models/Cono/Cono.obj");
+	//Model casco((char*)"Models/casco/casco.obj");
+	//Model Cono((char*)"Models/Cono/Cono.obj");
 	//Model CuboMoldeParaCasa((char*)"Models/CuboMoldeParaCasa/CuboMoldeParaCasa.obj");
-	Model Edificio((char*)"Models/Edificio/Edificio.obj");
-	Model edificio2((char*)"Models/edificio2/edificio2.obj");
-	Model edificio3((char*)"Models/edificio3/edificio3.obj");
-	Model edificio4((char*)"Models/edificio4/edificio4.obj");
-	Model edificio5((char*)"Models/edificio5/edificio5.obj");
-	Model edificio6((char*)"Models/edificio6/edificio6.obj");
-	Model edificio7((char*)"Models/edificio7/edificio7.obj"); 
-	// //Model edificio2((char*)"Models/edificio2/edificio2.obj");
+	//Model Edificio((char*)"Models/Edificio/Edificio.obj");
+	//Model edificio2((char*)"Models/edificio2/edificio2.obj");
+	//Model edificio3((char*)"Models/edificio3/edificio3.obj");
+	//Model edificio4((char*)"Models/edificio4/edificio4.obj");
+	//Model edificio5((char*)"Models/edificio5/edificio5.obj");
+	//Model edificio6((char*)"Models/edificio6/edificio6.obj");
+	//Model edificio7((char*)"Models/edificio7/edificio7.obj"); 
+	//Model edificio2((char*)"Models/edificio2/edificio2.obj");
 	//Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
-	Model hidrante((char*)"Models/hidrante/hidrante.obj");
+	//Model hidrante((char*)"Models/hidrante/hidrante.obj");
 	//Model jardinera((char*)"Models/jardinera/jardinera.obj");
-	Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
+	//Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
 	//Model LetreroCalle((char*)"Models/LetreroCalle/LetreroCalle.obj");
-	Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
-	Model llantas((char*)"Models/llantas/llantas.obj");
-	Model mesa((char*)"Models/mesa/mesa.obj");
-	Model palapa((char*)"Models/palapa/palapa.obj");
-	Model pasto((char*)"Models/pasto/pasto.obj");
+	//Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
+	//Model llantas((char*)"Models/llantas/llantas.obj");
+	//Model mesa((char*)"Models/mesa/mesa.obj");
+	//Model palapa((char*)"Models/palapa/palapa.obj");
+	//Model pasto((char*)"Models/pasto/pasto.obj");
 
+	/*
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
@@ -189,20 +193,21 @@ int main() {
 	Model DogRightLegB((char*)"Models/perro/DogRightLegB.obj");
 	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
 	Model DogTail((char*)"Models/perro/DogTail.obj");
-
-	Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
-	Model placas((char*)"Models/placas/placas.obj");
-	Model poste((char*)"Models/poste/poste.obj");
-	Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
-	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
-	Model scooter((char*)"Models/scooter/scooter.obj");
-	Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
-	Model StopLight((char*)"Models/StopLight/StopLight.obj");
-	Model StopSign((char*)"Models/StopSign/StopSign.obj");
-	Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
-	Model tope((char*)"Models/tope/tope.obj");
-	Model valla((char*)"Models/valla/valla.obj");
 	*/
+
+	//Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
+	//Model placas((char*)"Models/placas/placas.obj");
+	//Model poste((char*)"Models/poste/poste.obj");
+	//Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
+	//Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
+	//Model scooter((char*)"Models/scooter/scooter.obj");
+	//Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
+	//Model StopLight((char*)"Models/StopLight/StopLight.obj");
+	//Model StopSign((char*)"Models/StopSign/StopSign.obj");
+	//Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
+	//Model tope((char*)"Models/tope/tope.obj");
+	//Model valla((char*)"Models/valla/valla.obj");
+	
 
 
 	// Buffers
@@ -276,9 +281,9 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Parte1.Draw(lightingShader);
 		currentX += spacing;
-		*/
+
 		// --- Maqueta ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -296,7 +301,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Parte3.Draw(lightingShader);
 		currentX += spacing;
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -332,16 +337,16 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Parte9.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Antena_Telecom ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Antena_Telecom.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- Arbol ---
 		/*
@@ -374,7 +379,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		asiento.Draw(lightingShader);
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -384,7 +389,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cuerpo.Draw(lightingShader);
-		
+
 
 
 		//      -------------------
@@ -479,7 +484,7 @@ int main() {
 
 
 		// --- Cono ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -513,7 +518,7 @@ int main() {
 		edificio2.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Edificio3 ---
 		/*
 		model = glm::mat4(1.0f);
@@ -626,7 +631,7 @@ int main() {
 		/*
 
 		// --- Mesa ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -640,7 +645,9 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		palapa.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
+	
+		/*
 		// --- Pasto ---
 		
 		model = glm::mat4(1.0f);
@@ -648,7 +655,9 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		pasto.Draw(lightingShader);
 		currentX += spacing;
+		*/
 
+		/*
 		// ------------ PERRO ------------
 
 		model = glm::mat4(1.0f);
