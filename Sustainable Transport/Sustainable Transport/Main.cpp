@@ -146,12 +146,12 @@ int main() {
 	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
-	
+	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
-	
+	*/
 
 	//Model bolardocar((char*)"Models/bolardocar/bolardocar.obj");
 	//Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
@@ -175,7 +175,7 @@ int main() {
 	//Model edificio2((char*)"Models/edificio2/edificio2.obj");
 	//Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
 	//Model hidrante((char*)"Models/hidrante/hidrante.obj");
-	//Model jardinera((char*)"Models/jardinera/jardinera.obj");
+	Model jardinera((char*)"Models/jardinera/jardinera.obj");
 	//Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
 	//Model LetreroCalle((char*)"Models/LetreroCalle/LetreroCalle.obj");
 	//Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
@@ -365,17 +365,18 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bancamadera.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
 
 		// --- Banqueta ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 		currentX += spacing;
 		*/
-
+		
+		/*
 		//    -------- BICCICLETA ------
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
@@ -432,17 +433,17 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BotedeReciclaje.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
 		// --- boteVerdeBasura ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		boteVerdeBasura.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
 		// --- Bulardo ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -586,13 +587,13 @@ int main() {
 		*/
 
 		// --- Jardinera ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		jardinera.Draw(lightingShader);
 		currentX += spacing;
-		*/
+		
 
 		// --- LetreroAutobus ---
 		/*
