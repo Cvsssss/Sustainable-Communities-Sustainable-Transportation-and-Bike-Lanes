@@ -1,12 +1,18 @@
-# Blender 4.3.2 MTL File: 'Proyecto4.blend'
-# www.blender.org
-
-newmtl Material.016
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 2
-map_Kd C:/Users/Charl/OneDrive/Documentos/Escuela/Proyecto/Texturas/Columpio.png
+newmtl Columpio:Material_016
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd Columpio.png
+Ni 1.50
+Ks 0.50 0.50 0.50
+Ns 250.00
+newmtl ColumpioAsientos:Material_016
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd Columpio.png
+Ni 1.50
+Ks 0.50 0.50 0.50
+Ns 250.00

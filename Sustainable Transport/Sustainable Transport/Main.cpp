@@ -143,6 +143,7 @@ int main() {
 	
 	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
+	Model bancaMad((char*)"Models/bancaMad/bancaMad.obj");
 	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
@@ -172,7 +173,7 @@ int main() {
 	//Model edificio5((char*)"Models/edificio5/edificio5.obj");
 	//Model edificio6((char*)"Models/edificio6/edificio6.obj");
 	//Model edificio7((char*)"Models/edificio7/edificio7.obj"); 
-	//Model edificio2((char*)"Models/edificio2/edificio2.obj");
+	//Model edificio8((char*)"Models/edificio8/edificio8.obj");
 	//Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
 	//Model hidrante((char*)"Models/hidrante/hidrante.obj");
 	//Model jardinera((char*)"Models/jardinera/jardinera.obj");
@@ -181,6 +182,18 @@ int main() {
 	//Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
 	//Model llantas((char*)"Models/llantas/llantas.obj");
 	//Model mesa((char*)"Models/mesa/mesa.obj");
+	
+	//MDOELOS ANGEL
+
+	//columpio
+	/*
+	Model cuerpoColumpio((char*)"Models/columpio/cuerpoColumpio.obj");
+	Model asientoColumpio((char*)"Models/columpio/asientosColumpio.obj");
+	*/
+	
+	Model camino((char*)"Models/camino/camino.obj");
+	
+
 	//Model palapa((char*)"Models/palapa/palapa.obj");
 	//Model pasto((char*)"Models/pasto/pasto.obj");
 
@@ -199,7 +212,7 @@ int main() {
 	//Model placas((char*)"Models/placas/placas.obj");
 	//Model poste((char*)"Models/poste/poste.obj");
 	//Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
-	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
+	//Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
 	//Model scooter((char*)"Models/scooter/scooter.obj");
 	//Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
 	//Model StopLight((char*)"Models/StopLight/StopLight.obj");
@@ -363,6 +376,15 @@ int main() {
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		bancaMad.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
+		// --- Bancamadera ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		bancamadera.Draw(lightingShader);
 		currentX += spacing;
 		*/
@@ -477,6 +499,16 @@ int main() {
 		currentX += spacing;
 		*/
 
+
+		// --- Camino ---
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		camino.Draw(lightingShader);
+		currentX += spacing;
+		
+
 		// --- Casco ---
 		/*
 		model = glm::mat4(1.0f);
@@ -567,6 +599,14 @@ int main() {
 		currentX += spacing;
 		*/
 
+		// --- Edificio8 ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		edificio8.Draw(lightingShader);
+		currentX += spacing;
+		*/
 
 		// --- EdificioSinDiseno ---
 		/*
@@ -640,9 +680,26 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		mesa.Draw(lightingShader);
 		currentX += spacing;
+		*/
+
+		// ---	MODELOS ANGEL ---
+	
+		//COLUMPIO
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		cuerpoColumpio.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		asientoColumpio.Draw(lightingShader);
+		currentX += spacing;
+		*/
 
 		// --- palapa ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -739,13 +796,14 @@ int main() {
 		*/
 
 		// --- RampaDiscapacitados ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		RampaDiscapacitados.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
+
 		// --- SCOOTER  ---
 		/*
 		model = glm::mat4(1.0f);
