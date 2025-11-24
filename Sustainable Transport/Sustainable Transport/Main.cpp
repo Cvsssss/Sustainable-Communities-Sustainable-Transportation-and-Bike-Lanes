@@ -198,8 +198,8 @@ int main() {
 	//Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
 	//Model placas((char*)"Models/placas/placas.obj");
 	//Model poste((char*)"Models/poste/poste.obj");
-	Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
-	//Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
+	//Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
+	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
 	//Model scooter((char*)"Models/scooter/scooter.obj");
 	//Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
 	//Model StopLight((char*)"Models/StopLight/StopLight.obj");
@@ -730,16 +730,16 @@ int main() {
 		*/
 
 		// --- PosteAlto ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		posteAlto.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- RampaDiscapacitados ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -747,7 +747,7 @@ int main() {
 		currentX += spacing;
 		
 		// --- SCOOTER  ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
