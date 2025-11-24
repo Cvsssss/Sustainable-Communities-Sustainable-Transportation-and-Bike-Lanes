@@ -141,17 +141,17 @@ int main() {
 	Model Parte9((char*)"Models/Maqueta/Parte9.obj");
 	*/
 	
-	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
+	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
 	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
-	/*
+	
 	//BICICLETA
-	Model asiento((char*)"Models/bicicleta/asiento.obj");
-	Model cadena((char*)"Models/bicicleta/cadena.obj");
-	Model cuerpo((char*)"Models/bicicleta/cuerpo.obj");
-	*/
+	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
+	Model cadena((char*)"Models/BICI/cadena.obj");
+	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
+	
 
 	//Model bolardocar((char*)"Models/bolardocar/bolardocar.obj");
 	//Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
@@ -339,6 +339,7 @@ int main() {
 		currentX += spacing;
 		*/
 
+		/*
 		// --- Antena_Telecom ---
 		
 		model = glm::mat4(1.0f);
@@ -346,7 +347,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Antena_Telecom.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Arbol ---
 		/*
@@ -373,12 +374,13 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 		currentX += spacing;
+		*/
 
 		//    -------- BICCICLETA ------
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		asiento.Draw(lightingShader);
+		llantasbici.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
@@ -393,7 +395,7 @@ int main() {
 
 
 		//      -------------------
-		*/
+		
 
 		// --- Bolardocar ---
 		/*

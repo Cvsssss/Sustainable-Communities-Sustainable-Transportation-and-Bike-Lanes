@@ -1,0 +1,62 @@
+newmtl asiento:initialShadingGroup_008
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd asiento.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl cadena:initialShadingGroup_006
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd cadena.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl cuerpo:initialShadingGroup_012
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd cuerpo.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl llantas:initialShadingGroup_006
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd cadena.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl llantas:initialShadingGroup_008
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd asiento.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl llantas:initialShadingGroup_010
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl llantas:initialShadingGroup_012
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd cuerpo.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
