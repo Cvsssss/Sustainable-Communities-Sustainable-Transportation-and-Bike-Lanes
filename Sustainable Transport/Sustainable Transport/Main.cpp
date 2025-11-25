@@ -143,7 +143,9 @@ int main() {
 	
 	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
-	Model bancaMad((char*)"Models/bancaMad/bancaMad.obj");
+	//Model arbol2((char*)"Models/arbol2/arbol2.obj");
+	//Model arbusto((char*)"Models/arbusto/arbusto.obj");
+	//Model bancaMad((char*)"Models/bancaMad/bancaMad.obj");
 	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
@@ -163,6 +165,7 @@ int main() {
 	//Model Bus((char*)"Models/Bus/Bus.obj");
 	//Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
 	//Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad_Velocimetro.obj");
+	//Model camino((char*)"Models/camino/camino.obj");
 	//Model casco((char*)"Models/casco/casco.obj");
 	//Model Cono((char*)"Models/Cono/Cono.obj");
 	//Model CuboMoldeParaCasa((char*)"Models/CuboMoldeParaCasa/CuboMoldeParaCasa.obj");
@@ -177,6 +180,8 @@ int main() {
 	//Model EdificioSinDiseno((char*)"Models/EdificioSinDiseno/EdificioSinDiseno.obj");
 	//Model hidrante((char*)"Models/hidrante/hidrante.obj");
 	//Model jardinera((char*)"Models/jardinera/jardinera.obj");
+	//Model kiosko((char*)"Models/kiosko/kiosko.obj");
+	//Model LamparaModerna((char*)"Models/LamparaModerna/LamparaModerna.obj");
 	//Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
 	//Model LetreroCalle((char*)"Models/LetreroCalle/LetreroCalle.obj");
 	//Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
@@ -190,9 +195,6 @@ int main() {
 	Model cuerpoColumpio((char*)"Models/columpio/cuerpoColumpio.obj");
 	Model asientoColumpio((char*)"Models/columpio/asientosColumpio.obj");
 	*/
-	
-	Model camino((char*)"Models/camino/camino.obj");
-	
 
 	//Model palapa((char*)"Models/palapa/palapa.obj");
 	//Model pasto((char*)"Models/pasto/pasto.obj");
@@ -371,6 +373,24 @@ int main() {
 		currentX += spacing;
 		*/
 
+		// --- Arbol2 ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		arbol2.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
+		// --- Arbusto ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		arbusto.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
 		// --- Bancamadera ---
 		/*
 		model = glm::mat4(1.0f);
@@ -501,13 +521,13 @@ int main() {
 
 
 		// --- Camino ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		camino.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Casco ---
 		/*
@@ -634,6 +654,25 @@ int main() {
 		jardinera.Draw(lightingShader);
 		currentX += spacing;
 		*/
+
+		// --- kiosko ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		kiosko.Draw(lightingShader);
+		currentX += spacing;
+		*/
+		
+		// --- Lampara Moderna ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		LamparaModerna.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
 
 		// --- LetreroAutobus ---
 		/*
