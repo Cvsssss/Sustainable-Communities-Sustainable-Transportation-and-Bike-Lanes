@@ -47,8 +47,8 @@ vn -0.000951 0.754753 0.656009
 vn -0.000951 0.754753 0.656009
 vn -0.001134 0.661167 0.750238
 s off
-g Maqueta:polySurface147polySurface146
-usemtl Maqueta:lambert1SG2
+g TapaBuzon:polySurface147polySurface146
+usemtl TapaBuzon:lambert1SG2
 f 1/1/1 2/2/2 7/3/3 6/4/4
 f 2/2/5 3/5/6 8/6/7 7/3/8
 f 3/5/9 4/7/10 9/8/11 8/6/12

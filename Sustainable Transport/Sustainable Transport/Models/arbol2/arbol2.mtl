@@ -1,4 +1,4 @@
-newmtl Arbol3:Nature_Mat_01_002
+newmtl arbol2:Nature_Mat_01_002
 illum 4
 Kd 0.00 0.00 0.00
 Ka 1.00 1.00 1.00
@@ -7,3 +7,15 @@ map_Kd ArbolesYRocas.jpg
 Ni 1.45
 Ks 0.50 0.50 0.50
 Ns 62.50
+newmtl camino:lambert25SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl camino1:lambert25SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
