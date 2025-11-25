@@ -165,6 +165,7 @@ int main() {
 	//Model Bus((char*)"Models/Bus/Bus.obj");
 	//Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
 	//Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad_Velocimetro.obj");
+	//Model Ciclovia((char*)"Models/Ciclovia/Ciclovia.obj");
 	//Model camino((char*)"Models/camino/camino.obj");
 	//Model casco((char*)"Models/casco/casco.obj");
 	//Model Cono((char*)"Models/Cono/Cono.obj");
@@ -197,6 +198,7 @@ int main() {
 	*/
 
 	//Model palapa((char*)"Models/palapa/palapa.obj");
+	//Model paradaAutobus((char*)"Models/paradaAutobus/paradaAutobus.obj");
 	//Model pasto((char*)"Models/pasto/pasto.obj");
 
 	/*
@@ -221,6 +223,7 @@ int main() {
 	//Model StopSign((char*)"Models/StopSign/StopSign.obj");
 	//Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
 	//Model tope((char*)"Models/tope/tope.obj");
+	//Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj"); 
 	//Model valla((char*)"Models/valla/valla.obj");
 	
 
@@ -536,10 +539,19 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		casco.Draw(lightingShader);
 		currentX += spacing;
-
+		*/
+		
+		// --- Ciclovia ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+		currentX += spacing;
+		*/
 
 		// --- Cono ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -745,7 +757,16 @@ int main() {
 		palapa.Draw(lightingShader);
 		currentX += spacing;
 		*/
-	
+		
+		// --- Parada Autobus ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		paradaAutobus.Draw(lightingShader);
+		currentX += spacing;
+		*/
+		
 		/*
 		// --- Pasto ---
 		
@@ -892,10 +913,19 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
 		currentX += spacing;
-		   
+		*/   
+
+		// --- Turbina ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Turbina.Draw(lightingShader);
+		currentX += spacing;
+		*/
 
 		// --- Valla ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
