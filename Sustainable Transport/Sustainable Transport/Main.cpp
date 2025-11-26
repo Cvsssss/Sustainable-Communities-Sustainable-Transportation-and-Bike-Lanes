@@ -26,6 +26,7 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
+#include "modelAnim.h"
 
 // Prototipos de funciones
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -37,7 +38,7 @@ const GLuint WIDTH = 800, HEIGHT = 600;
 int SCREEN_WIDTH, SCREEN_HEIGHT;
 
 // Cámara
-Camera camera(glm::vec3(0.0f, 5.0f, 20.0f)); // Cámara más lejos y arriba para ver mejor
+Camera camera(glm::vec3(0.0f, 5.0f, 20.0f)); 
 GLfloat lastX = WIDTH / 2.0;
 GLfloat lastY = HEIGHT / 2.0;
 bool keys[1024];
@@ -46,6 +47,13 @@ bool firstMouse = true;
 // Tiempo
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
+glm::vec3 PosIni(0.0f, 0.0f, -15.0f);
+glm::vec3 animPos = glm::vec3(PosIni.x + 3.0f, PosIni.y - 1.0f, PosIni.z);
+float animRot = 0.0f;
+int estadoPatrulla = 0;
+float recorrido = 0.0f;
+float distPatrulla = 50.0f;
+float animVelocidad = 15.0f;
 
 // Luces
 glm::vec3 pointLightPositions[] = {
@@ -124,23 +132,16 @@ int main() {
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.frag");
+	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 
+	// CARGA DE LA ANIMACIÓN DEL PERSONAJE
+	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
+	animacionPersonaje.initShaders(animShader.Program);
 
 	// CARGA DE LOS MODELOS
-	
-	//Model Maqueta((char*)"Models/PrimeraEntrega/Maqueta.obj");
-	/*
-	Model Parte1((char*)"Models/Maqueta/Parte1.obj");
-	Model Parte2((char*)"Models/Maqueta/Parte2.obj");
-	Model Parte3((char*)"Models/Maqueta/Parte3.obj");
-	Model Parte4((char*)"Models/Maqueta/Parte4.obj");
-	Model Parte5((char*)"Models/Maqueta/Parte5.obj");
-	Model Parte6((char*)"Models/Maqueta/Parte6.obj");
-	Model Parte7((char*)"Models/Maqueta/Parte7.obj");
-	Model Parte8((char*)"Models/Maqueta/Parte8.obj");
-	Model Parte9((char*)"Models/Maqueta/Parte9.obj");
-	*/
-	
+
+
+
 	//Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	//Model arbol((char*)"Models/arbol/arbol.obj");
 	//Model arbol2((char*)"Models/arbol2/arbol2.obj");
@@ -149,8 +150,9 @@ int main() {
 	//Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	//Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 
-	/*
+
 	//BICICLETA
+	/*
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
@@ -188,7 +190,7 @@ int main() {
 	//Model LetreroVelocidad((char*)"Models/LetreroVelocidad/LetreroVelocidad.obj");
 	//Model llantas((char*)"Models/llantas/llantas.obj");
 	//Model mesa((char*)"Models/mesa/mesa.obj");
-	
+
 	//MDOELOS ANGEL
 
 	//columpio
@@ -201,8 +203,8 @@ int main() {
 	//Model paradaAutobus((char*)"Models/paradaAutobus/paradaAutobus.obj");
 	//Model pasto((char*)"Models/pasto/pasto.obj");
 
-	/*
 	//perro
+	/*
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
 	Model DogLeftLegB((char*)"Models/perro/DogLeftLegB.obj");
@@ -225,7 +227,7 @@ int main() {
 	//Model tope((char*)"Models/tope/tope.obj");
 	//Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj"); 
 	//Model valla((char*)"Models/valla/valla.obj");
-	
+
 
 
 	// Buffers
@@ -256,7 +258,40 @@ int main() {
 
 	while (!glfwWindowShouldClose(window)) {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
-		glfwPollEvents(); DoMovement();
+		glfwPollEvents(); 
+		DoMovement();
+		float velocidadReal = animVelocidad * deltaTime;
+
+		//Animacion de persona caminando por la calle
+		switch (estadoPatrulla)
+		{
+		case 0: 
+			animPos.z += velocidadReal;
+			animRot = 0.0f; 
+			break;
+		case 1: 
+			animPos.x += velocidadReal;
+			animRot = 90.0f;
+			break;
+		case 2: 
+			animPos.z -= velocidadReal;
+			animRot = 180.0f;
+			break;
+		case 3:
+			animPos.x -= velocidadReal;
+			animRot = 270.0f;
+			break;
+		}
+
+	//GIro
+		recorrido += velocidadReal;
+		if (recorrido > distPatrulla)
+		{
+			recorrido = 0.0f; // Reiniciar 
+			estadoPatrulla++; 
+			if (estadoPatrulla > 3) 
+				estadoPatrulla = 0;
+		}
 
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -359,7 +394,7 @@ int main() {
 
 		/*
 		// --- Antena_Telecom ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -420,7 +455,7 @@ int main() {
 		Banqueta.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		/*
 		//    -------- BICCICLETA ------
 		model = glm::mat4(1.0f);
@@ -441,7 +476,7 @@ int main() {
 
 
 		//      -------------------
-		
+
 
 		// --- Bolardocar ---
 		/*
@@ -540,7 +575,7 @@ int main() {
 		casco.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Ciclovia ---
 		/*
 		model = glm::mat4(1.0f);
@@ -675,7 +710,7 @@ int main() {
 		kiosko.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Lampara Moderna ---
 		/*
 		model = glm::mat4(1.0f);
@@ -734,7 +769,7 @@ int main() {
 		*/
 
 		// ---	MODELOS ANGEL ---
-	
+
 		//COLUMPIO
 		/*
 		model = glm::mat4(1.0f);
@@ -757,7 +792,7 @@ int main() {
 		palapa.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Parada Autobus ---
 		/*
 		model = glm::mat4(1.0f);
@@ -766,10 +801,10 @@ int main() {
 		paradaAutobus.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		/*
 		// --- Pasto ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -777,7 +812,7 @@ int main() {
 		currentX += spacing;
 		*/
 
-		
+
 		// ------------ PERRO ------------
 		/*
 		model = glm::mat4(1.0f);
@@ -819,17 +854,17 @@ int main() {
 		// --------------------------------
 		/*
 		// -- Piedra_Decorativa ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Piedra_Decorativa.Draw(lightingShader);
 		currentX += spacing;
-		
 
-	
+
+
 		// --- Placas ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -881,7 +916,7 @@ int main() {
 		currentX += spacing;
 
 		// --- StopLight ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -905,7 +940,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		TapaBuzon.Draw(lightingShader);
 		currentX += spacing;
-		
+
 
 		// --- Tope ---
 		model = glm::mat4(1.0f);
@@ -913,7 +948,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
 		currentX += spacing;
-		*/   
+		*/
 
 		// --- Turbina ---
 		/*
@@ -952,6 +987,30 @@ int main() {
 		glBindVertexArray(skyboxVAO); glActiveTexture(GL_TEXTURE0); glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 		glDrawArrays(GL_TRIANGLES, 0, 36); glBindVertexArray(0); glDepthFunc(GL_LESS);
 
+		//AQUI SE CARGAN LOS FBX CON PROPIEDADES
+		animShader.Use();
+
+
+		glUniformMatrix4fv(glGetUniformLocation(animShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(glGetUniformLocation(animShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+		// 2. Configurar Materiales y Luz (Para que no se vea negro)
+		glUniform3f(glGetUniformLocation(animShader.Program, "material.specular"), 0.5f, 0.5f, 0.5f);
+		glUniform1f(glGetUniformLocation(animShader.Program, "material.shininess"), 32.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.ambient"), 0.2f, 0.2f, 0.2f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 1.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
+
+		glm::mat4 modelAnim = glm::mat4(1.0f);
+		modelAnim = glm::translate(modelAnim, animPos);
+		modelAnim = glm::rotate(modelAnim, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelAnim = glm::scale(modelAnim, glm::vec3(0.02f)); 
+
+		glUniformMatrix4fv(glGetUniformLocation(animShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelAnim));
+
+		animacionPersonaje.Draw(animShader);
+		glBindVertexArray(0);
 		glfwSwapBuffers(window);
 	}
 
