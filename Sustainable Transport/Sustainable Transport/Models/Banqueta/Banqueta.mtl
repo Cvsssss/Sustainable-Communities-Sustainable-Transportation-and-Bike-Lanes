@@ -1,25 +1,25 @@
-newmtl Banqueta1:initialShadingGroup
+newmtl Banqueta:initialShadingGroup
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Banqueta(1).jpg
 Ni 1.00
-newmtl Banqueta1:lambert14SG
+newmtl Banqueta:lambert14SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Banqueta.png
 Ni 1.00
-newmtl Banqueta1:lambert16SG
+newmtl Banqueta:lambert16SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Banqueta(1).jpg
 Ni 1.00
-newmtl Banqueta1:lambert17SG
+newmtl Banqueta:lambert17SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
