@@ -1,2 +1,9 @@
-*.ipch
+# Visual Studio
 .vs/
+x64/
+Debug/
+Release/
+*.pdb
+*.obj
+*.exe
+*.user
