@@ -253,7 +253,7 @@ int main() {
 
 
 
-/*
+
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
 	Model aspas((char*)"Models/turb/aspas.obj");
 	//Model valla((char*)"Models/valla/valla.obj");
@@ -332,7 +332,7 @@ int main() {
 	Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj");
 
 	Model valla((char*)"Models/valla/valla.obj");
-	*/
+	
 
 
 	// Buffers
@@ -1068,7 +1068,7 @@ int main() {
 		*/
 
 		// --- Turbina ---
-/*
+
 		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
@@ -1083,14 +1083,14 @@ int main() {
 		currentX += spacing;
 
 		// --- Valla ---
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		valla.Draw(lightingShader);
-		*/
+		
 		//PASTO
-/*
+
 		float offsetPasto = 15.0f;
 		for (int x = -1; x <= 1; x++) {
 			for (int z = -1; z <= 1; z++) {
@@ -1101,8 +1101,8 @@ int main() {
 				pasto.Draw(lightingShader);
 			}
 		}
-		*/
-		/*
+		
+		
 		// --- KIOSKO CENTRAL ---
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -1218,7 +1218,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		arbusto.Draw(lightingShader);
-	*/
+	
 		// Dibujo Luces
 		lampShader.Use();
 		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
