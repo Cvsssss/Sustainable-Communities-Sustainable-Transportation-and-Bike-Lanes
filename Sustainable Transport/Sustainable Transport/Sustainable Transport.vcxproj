@@ -133,13 +133,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Camera.h" />
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Mesh.h" />
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\meshAnim.h" />
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Model.h" />
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\modelAnim.h" />
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shader.h" />
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\stb_image.h" />
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Texture.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="meshAnim.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="modelAnim.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\anim.frag" />

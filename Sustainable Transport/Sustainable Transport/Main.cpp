@@ -26,6 +26,8 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
+#include "Texture.h"
+#include "modelAnim.h"
 
 // Prototipos de funciones
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -42,6 +44,21 @@ GLfloat lastX = WIDTH / 2.0;
 GLfloat lastY = HEIGHT / 2.0;
 bool keys[1024];
 bool firstMouse = true;
+// Window dimensions
+
+glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
+glm::vec3 PosIni(-95.0f, 1.0f, -45.0f);
+glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
+float range = 0.0f;
+float rot = 0.0f;
+float animDesplazamiento = 0.0f;
+float animVelocidad = 5.0f;
+// Variables para la animación de patrulla
+glm::vec3 animPos = glm::vec3(PosIni.x + 3.0f, PosIni.y - 1.0f, PosIni.z); // Posición inicial
+float animRot = 0.0f;   // Rotación actual del modelo (grados)
+int estadoPatrulla = 0; // 0:Adelante, 1:Derecha, 2:Atrás, 3:Izquierda
+float recorrido = 0.0f; // Contador de cuánto ha caminado en el tramo actual
+float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
 
 // Tiempo
 GLfloat deltaTime = 0.0f;
@@ -124,9 +141,13 @@ int main() {
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.frag");
+	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 
-
+	//Modelo de animación
+	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
+	animacionPersonaje.initShaders(animShader.Program);
 	// CARGA DE LOS MODELOS
+
 	
 	//Model Maqueta((char*)"Models/PrimeraEntrega/Maqueta.obj");
 	/*
@@ -259,6 +280,43 @@ int main() {
 	while (!glfwWindowShouldClose(window)) {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
 		glfwPollEvents(); DoMovement();
+
+		animDesplazamiento += animVelocidad * deltaTime;
+		float velocidadReal = animVelocidad * deltaTime;
+
+		switch (estadoPatrulla)
+		{
+		case 0: // Caminar en Z positivo
+			animPos.z += velocidadReal;
+			animRot = 0.0f; // Mirando hacia +Z
+			break;
+		case 1: // Caminar en X positivo
+			animPos.x += velocidadReal;
+			animRot = 90.0f; // Girar 90 grados
+			break;
+		case 2: // Caminar en Z negativo
+			animPos.z -= velocidadReal;
+			animRot = 180.0f; // Mirando hacia atrás
+			break;
+		case 3: // Caminar en X negativo
+			animPos.x -= velocidadReal;
+			animRot = 270.0f; // Mirando hacia izquierda
+			break;
+		}
+
+		// Aumentar el contador de distancia recorrida
+		recorrido += velocidadReal;
+
+		// ¿Llegamos a la esquina?
+		if (recorrido > distPatrulla)
+		{
+			recorrido = 0.0f; // Reiniciar contador para el siguiente tramo
+			estadoPatrulla++; // Cambiar al siguiente estado/dirección
+
+			// Si pasamos del estado 3, volvemos al 0 (bucle infinito)
+			if (estadoPatrulla > 3)
+				estadoPatrulla = 0;
+		}
 
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -958,6 +1016,45 @@ int main() {
 			glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
+
+
+		glBindVertexArray(0);
+
+		/*_______________________________Personaje Animado___________________________*/
+		animShader.Use();
+		GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
+		GLint viewLoc = glGetUniformLocation(lightingShader.Program, "view");
+		GLint projLoc = glGetUniformLocation(lightingShader.Program, "projection");
+
+		modelLoc = glGetUniformLocation(animShader.Program, "model");
+		viewLoc = glGetUniformLocation(animShader.Program, "view");
+		projLoc = glGetUniformLocation(animShader.Program, "projection");
+
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+		glUniform3f(glGetUniformLocation(animShader.Program, "material.specular"), 0.5f, 0.5f, 0.5f);
+		glUniform1f(glGetUniformLocation(animShader.Program, "material.shininess"), 32.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.ambient"), 0.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 0.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
+		view = camera.GetViewMatrix();
+
+		model = glm::mat4(1);
+
+		// 1. TRASLACIÓN: Usamos la variable 'animPos' que calcula la lógica de patrulla
+		model = glm::translate(model, animPos);
+
+		// 2. ROTACIÓN: Giramos el personaje según hacia donde camine
+		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
+
+		// 3. ESCALA
+		model = glm::scale(model, glm::vec3(0.02f));
+
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		animacionPersonaje.Draw(animShader);
 		glBindVertexArray(0);
 
 		// Dibujo Skybox
@@ -967,6 +1064,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(skyboxShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 		glBindVertexArray(skyboxVAO); glActiveTexture(GL_TEXTURE0); glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 		glDrawArrays(GL_TRIANGLES, 0, 36); glBindVertexArray(0); glDepthFunc(GL_LESS);
+
 
 		glfwSwapBuffers(window);
 	}

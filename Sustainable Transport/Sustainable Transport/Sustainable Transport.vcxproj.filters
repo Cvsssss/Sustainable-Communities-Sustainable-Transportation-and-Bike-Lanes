@@ -26,18 +26,6 @@
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Camera.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Mesh.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\meshAnim.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Model.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\modelAnim.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Shader.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -45,6 +33,18 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\320166866_PROYECTOFINAL2026-1_GPO08\ProyectoFinal\Texture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="modelAnim.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="meshAnim.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
