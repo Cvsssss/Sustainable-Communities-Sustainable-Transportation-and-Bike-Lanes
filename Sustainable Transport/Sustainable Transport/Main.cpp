@@ -224,6 +224,8 @@ int main() {
 	//Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
 	//Model tope((char*)"Models/tope/tope.obj");
 	//Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj"); 
+	Model posteTurb((char*)"Models/turb/posteTurb.obj");
+	Model aspas((char*)"Models/turb/aspas.obj");
 	//Model valla((char*)"Models/valla/valla.obj");
 	
 
@@ -923,6 +925,20 @@ int main() {
 		Turbina.Draw(lightingShader);
 		currentX += spacing;
 		*/
+
+		// --- Turbina ---
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		aspas.Draw(lightingShader);
+		currentX += spacing;
+		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		posteTurb.Draw(lightingShader);
+		currentX += spacing;
 
 		// --- Valla ---
 		/*
