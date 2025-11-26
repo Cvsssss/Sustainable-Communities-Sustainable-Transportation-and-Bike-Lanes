@@ -1,2 +1,16 @@
-*.ipch
+# Ignorar carpetas de compilación
+Debug/
+Release/
+x64/
 .vs/
+
+# Ignorar archivos binarios y temporales
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.idb
+*.ipch
+*.user
