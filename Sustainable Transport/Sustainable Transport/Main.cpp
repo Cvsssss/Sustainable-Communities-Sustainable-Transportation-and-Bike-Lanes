@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -959,7 +960,6 @@ int main() {
 		currentX += spacing;
 		*/
 
-		// --- Valla ---
 		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
