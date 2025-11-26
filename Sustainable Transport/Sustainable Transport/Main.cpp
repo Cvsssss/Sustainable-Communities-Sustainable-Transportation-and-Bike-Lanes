@@ -149,7 +149,7 @@ int main() {
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.frag");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 
-	
+	/*
 	//Modelo de animación
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
@@ -157,40 +157,10 @@ int main() {
 	animacionPersonaje2.initShaders(animShader.Program);
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
-	
+	*/
 
 	// CARGA DE LOS MODELOS
 
-	/*
-	//perro
-	Model DogBody((char*)"Models/perro/DogBody.obj");
-	Model DogHead((char*)"Models/perro/DogHead.obj");
-	Model DogLeftLegB((char*)"Models/perro/DogLeftLegB.obj");
-	Model DogLeftLegF((char*)"Models/perro/DogLeftLegF.obj");
-	Model DogRightLegB((char*)"Models/perro/DogRightLegB.obj");
-	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
-	Model DogTail((char*)"Models/perro/DogTail.obj");
-	*/
-
-	//Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
-	//Model placas((char*)"Models/placas/placas.obj");
-	//Model poste((char*)"Models/poste/poste.obj");
-	//Model posteAlto((char*)"Models/posteAlto/posteAlto.obj");
-	//Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
-	//Model scooter((char*)"Models/scooter/scooter.obj");
-	//Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
-	//Model StopLight((char*)"Models/StopLight/StopLight.obj");
-	//Model StopSign((char*)"Models/StopSign/StopSign.obj");
-	//Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
-	//Model tope((char*)"Models/tope/tope.obj");
-	Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj"); 
-
-
-
-/*
-	Model posteTurb((char*)"Models/turb/posteTurb.obj");
-	Model aspas((char*)"Models/turb/aspas.obj");
-	//Model valla((char*)"Models/valla/valla.obj");
 	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	Model arbol((char*)"Models/arbol/arbol.obj");
 	Model arbol2((char*)"Models/arbol2/arbol2.obj");
@@ -198,7 +168,7 @@ int main() {
 	Model bancaMad((char*)"Models/bancaMad/bancaMad.obj");
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
-
+	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
 
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
@@ -270,7 +240,6 @@ int main() {
 	Model aspas((char*)"Models/turb/aspas.obj");
 
 	Model valla((char*)"Models/valla/valla.obj");
-	*/
 
 
 
@@ -309,31 +278,31 @@ int main() {
 
 		switch (estadoPatrulla)
 		{
-		case 0: 
+		case 0:
 			animPos.z += velocidadReal;
-			animRot = 0.0f; 
+			animRot = 0.0f;
 			break;
 		case 1:
 			animPos.x += velocidadReal;
-			animRot = 90.0f; 
+			animRot = 90.0f;
 			break;
-		case 2: 
+		case 2:
 			animPos.z -= velocidadReal;
-			animRot = 180.0f; 
+			animRot = 180.0f;
 			break;
-		case 3: 
+		case 3:
 			animPos.x -= velocidadReal;
-			animRot = 270.0f; 
+			animRot = 270.0f;
 			break;
 		}
 
-		
+
 		recorrido += velocidadReal;
 
 		if (recorrido > distPatrulla)
 		{
-			recorrido = 0.0f; 
-			estadoPatrulla++; 
+			recorrido = 0.0f;
+			estadoPatrulla++;
 
 
 			if (estadoPatrulla > 3)
@@ -441,7 +410,7 @@ int main() {
 
 		/*
 		// --- Antena_Telecom ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -502,7 +471,7 @@ int main() {
 		Banqueta.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		/*
 		//    -------- BICCICLETA ------
 		model = glm::mat4(1.0f);
@@ -523,7 +492,7 @@ int main() {
 
 
 		//      -------------------
-		
+
 
 		// --- Bolardocar ---
 		/*
@@ -622,7 +591,7 @@ int main() {
 		casco.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Ciclovia ---
 		/*
 		model = glm::mat4(1.0f);
@@ -757,7 +726,7 @@ int main() {
 		kiosko.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Lampara Moderna ---
 		/*
 		model = glm::mat4(1.0f);
@@ -816,7 +785,7 @@ int main() {
 		*/
 
 		// ---	MODELOS ANGEL ---
-	
+
 		//COLUMPIO
 		/*
 		model = glm::mat4(1.0f);
@@ -839,7 +808,7 @@ int main() {
 		palapa.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		// --- Parada Autobus ---
 		/*
 		model = glm::mat4(1.0f);
@@ -848,10 +817,10 @@ int main() {
 		paradaAutobus.Draw(lightingShader);
 		currentX += spacing;
 		*/
-		
+
 		/*
 		// --- Pasto ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -859,7 +828,7 @@ int main() {
 		currentX += spacing;
 		*/
 
-		
+
 		// ------------ PERRO ------------
 		/*
 		model = glm::mat4(1.0f);
@@ -901,17 +870,17 @@ int main() {
 		// --------------------------------
 		/*
 		// -- Piedra_Decorativa ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Piedra_Decorativa.Draw(lightingShader);
 		currentX += spacing;
-		
 
-	
+
+
 		// --- Placas ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -963,7 +932,7 @@ int main() {
 		currentX += spacing;
 
 		// --- StopLight ---
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -987,7 +956,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		TapaBuzon.Draw(lightingShader);
 		currentX += spacing;
-		
+
 
 		// --- Tope ---
 		model = glm::mat4(1.0f);
@@ -995,26 +964,26 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		tope.Draw(lightingShader);
 		currentX += spacing;
-		*/   
+		*/
 
 		// --- Turbina ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Turbina.Draw(lightingShader);
 		currentX += spacing;
-		
+		*/
 
 		// --- Turbina ---
+/*
 
-		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		aspas.Draw(lightingShader);
 		currentX += spacing;
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -1022,14 +991,16 @@ int main() {
 		currentX += spacing;
 
 		// --- Valla ---
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		valla.Draw(lightingShader);
 		*/
+
+		//---------------MAQUETA--------------------
+
 		//PASTO
-/*
 		float offsetPasto = 15.0f;
 		for (int x = -1; x <= 1; x++) {
 			for (int z = -1; z <= 1; z++) {
@@ -1040,8 +1011,7 @@ int main() {
 				pasto.Draw(lightingShader);
 			}
 		}
-		*/
-		/*
+
 		// --- KIOSKO CENTRAL ---
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -1182,7 +1152,182 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		arbusto.Draw(lightingShader);
-	*/
+
+		// --- ARBUSTO 4 ---
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-16.0f, 0.0f, -16.0f));
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		arbusto.Draw(lightingShader);
+
+		// --- ARBUSTO 5 ---
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-5.0f, 0.0f, -5.0f));
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		arbusto.Draw(lightingShader);
+		// --- ARBUSTO 6 ---
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, 5.0f));
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		arbusto.Draw(lightingShader);
+
+
+
+		// 2. BANQUETAS 
+		// ==========================================
+		// LADO TRASERO (Z = -24.0) 
+		// ==========================================
+
+		// Pieza Trasera 1 (Izquierda)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-17.0f, 0.0f, -26.4f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		/*
+		// Pieza Trasera 2 (Centro-Izquierda)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-6.0f, 0.0f, -24.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Trasera 3 (Centro)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -24.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Trasera 4 (Centro-Derecha)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, -24.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Trasera 5 (Derecha)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(12.0f, 0.0f, -24.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		*/
+
+		/*
+		// ==========================================
+		// LADO DELANTERO (Z = 24.0)
+		// ==========================================
+
+		// Pieza Delantera 1 (Izquierda)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 24.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Delantera 2 (Centro-Izquierda)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-12.0f, 0.0f, 24.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Delantera 3 (Centro)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 24.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Delantera 4 (Centro-Derecha)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(12.0f, 0.0f, 24.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Delantera 5 (Derecha)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 24.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+
+		// ==========================================
+		// LADO IZQUIERDO (X = -24.0)
+		// ==========================================
+
+		// Pieza Izquierda 1 (Arriba)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Izquierda 2 (Centro)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Izquierda 3 (Abajo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 12.0f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+
+		// ==========================================
+		// LADO DERECHO (X = 24.0)
+		// ==========================================
+
+		// Pieza Derecha 1 (Arriba)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(24.0f, 0.0f, -12.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Derecha 2 (Centro)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		// Pieza Derecha 3 (Abajo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 12.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		*/
+
+
+
+
+
+
 		// Dibujo Luces
 		lampShader.Use();
 		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
@@ -1194,7 +1339,7 @@ int main() {
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
 
-glBindVertexArray(0);
+		glBindVertexArray(0);
 
 
 
@@ -1242,7 +1387,7 @@ glBindVertexArray(0);
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-		
+		/*
 		animacionPersonaje.Draw(animShader);
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(15.0f, 0.0f, -5.0f));
@@ -1257,7 +1402,7 @@ glBindVertexArray(0);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
-		
+		*/
 
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
@@ -1266,7 +1411,7 @@ glBindVertexArray(0);
 		glUniformMatrix4fv(glGetUniformLocation(skyboxShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 		glBindVertexArray(skyboxVAO); glActiveTexture(GL_TEXTURE0); glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 		glDrawArrays(GL_TRIANGLES, 0, 36); glBindVertexArray(0); glDepthFunc(GL_LESS);
-		
+
 
 		glfwSwapBuffers(window);
 	}
