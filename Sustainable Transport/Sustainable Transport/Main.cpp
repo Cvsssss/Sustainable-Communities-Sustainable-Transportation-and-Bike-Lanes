@@ -146,6 +146,11 @@ int main() {
 	//Modelo de animación
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
+	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
+	animacionPersonaje2.initShaders(animShader.Program);
+	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
+	animacionPersonaje3.initShaders(animShader.Program);
+	
 	// CARGA DE LOS MODELOS
 
 	
@@ -245,6 +250,10 @@ int main() {
 	//Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
 	//Model tope((char*)"Models/tope/tope.obj");
 	//Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj"); 
+
+
+
+/*
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
 	Model aspas((char*)"Models/turb/aspas.obj");
 	//Model valla((char*)"Models/valla/valla.obj");
@@ -323,7 +332,7 @@ int main() {
 	Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj");
 
 	Model valla((char*)"Models/valla/valla.obj");
-	
+	*/
 
 
 	// Buffers
@@ -361,34 +370,33 @@ int main() {
 
 		switch (estadoPatrulla)
 		{
-		case 0: // Caminar en Z positivo
+		case 0: 
 			animPos.z += velocidadReal;
-			animRot = 0.0f; // Mirando hacia +Z
+			animRot = 0.0f; 
 			break;
-		case 1: // Caminar en X positivo
+		case 1:
 			animPos.x += velocidadReal;
-			animRot = 90.0f; // Girar 90 grados
+			animRot = 90.0f; 
 			break;
-		case 2: // Caminar en Z negativo
+		case 2: 
 			animPos.z -= velocidadReal;
-			animRot = 180.0f; // Mirando hacia atrás
+			animRot = 180.0f; 
 			break;
-		case 3: // Caminar en X negativo
+		case 3: 
 			animPos.x -= velocidadReal;
-			animRot = 270.0f; // Mirando hacia izquierda
+			animRot = 270.0f; 
 			break;
 		}
 
-		// Aumentar el contador de distancia recorrida
+		
 		recorrido += velocidadReal;
 
-		// ¿Llegamos a la esquina?
 		if (recorrido > distPatrulla)
 		{
-			recorrido = 0.0f; // Reiniciar contador para el siguiente tramo
-			estadoPatrulla++; // Cambiar al siguiente estado/dirección
+			recorrido = 0.0f; 
+			estadoPatrulla++; 
 
-			// Si pasamos del estado 3, volvemos al 0 (bucle infinito)
+
 			if (estadoPatrulla > 3)
 				estadoPatrulla = 0;
 		}
@@ -1060,6 +1068,7 @@ int main() {
 		*/
 
 		// --- Turbina ---
+/*
 		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
@@ -1081,6 +1090,7 @@ int main() {
 		valla.Draw(lightingShader);
 		*/
 		//PASTO
+/*
 		float offsetPasto = 15.0f;
 		for (int x = -1; x <= 1; x++) {
 			for (int z = -1; z <= 1; z++) {
@@ -1091,7 +1101,8 @@ int main() {
 				pasto.Draw(lightingShader);
 			}
 		}
-
+		*/
+		/*
 		// --- KIOSKO CENTRAL ---
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -1207,7 +1218,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		arbusto.Draw(lightingShader);
-
+	*/
 		// Dibujo Luces
 		lampShader.Use();
 		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
@@ -1250,22 +1261,33 @@ int main() {
 
 		glUniform3f(glGetUniformLocation(animShader.Program, "material.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform1f(glGetUniformLocation(animShader.Program, "material.shininess"), 32.0f);
-		glUniform3f(glGetUniformLocation(animShader.Program, "light.ambient"), 0.0f, 1.0f, 1.0f);
-		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 0.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.ambient"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 1.0f, 1.0f, 1.0f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
 		view = camera.GetViewMatrix();
 
 		model = glm::mat4(1);
 
-		// 1. TRASLACIÓN: Usamos la variable 'animPos' que calcula la lógica de patrulla
 		model = glm::translate(model, animPos);
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.4f));
+		model = glm::scale(model, glm::vec3(0.2f));
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
 		animacionPersonaje.Draw(animShader);
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(15.0f, 0.0f, -5.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		animacionPersonaje2.Draw(animShader);
+
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -5.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
 
 		// Dibujo Skybox
