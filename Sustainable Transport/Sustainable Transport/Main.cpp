@@ -169,6 +169,7 @@ int main() {
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
+	Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
@@ -267,7 +268,7 @@ int main() {
 	skyboxShader.Use();
 	glUniform1i(glGetUniformLocation(skyboxShader.Program, "skybox"), 0);
 
-	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 20.0f);
+	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 200.0f);
 
 	while (!glfwWindowShouldClose(window)) {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
@@ -1575,6 +1576,13 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Ciclovia.Draw(lightingShader);
 
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra.Draw(lightingShader);
 		
 
 
