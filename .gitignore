@@ -1,3 +1,18 @@
 # Visual Studio
 .vs/
 x64/
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.exe
+*.dll
+*.obj
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.idb
+*.ipch
