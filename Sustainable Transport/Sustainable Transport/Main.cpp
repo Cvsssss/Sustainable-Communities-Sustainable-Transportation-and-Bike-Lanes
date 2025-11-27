@@ -62,6 +62,12 @@ float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
 
 float timeValue = (float)glfwGetTime(); // Ejemplo de cómo obtener el tiempo
 
+
+// Variables para la anumacion de la bici 
+glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, 0.0f);
+float rotRueda = 0.0f;
+float velocidadBici = 1.0f;
+
 // Tiempo
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -171,7 +177,7 @@ int main() {
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
-	*/
+	
 	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
@@ -186,14 +192,14 @@ int main() {
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
+	*/
 	
-	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 
-
+	/*
 	Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
 	Model BoteBasura((char*)"Models/BoteBasura/BoteBasura.obj");
 	Model BotedeReciclaje((char*)"Models/BotedeReciclaje/BotedeReciclaje.obj");
@@ -327,6 +333,12 @@ int main() {
 				estadoPatrulla = 0;
 		}
 
+		// Animacion de la bici 
+		if (PosBici.z < 50.0f) {
+			PosBici.z += velocidadBici * deltaTime;
+			rotRueda -= (velocidadBici * deltaTime);
+		}
+
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -357,6 +369,7 @@ int main() {
 		// RENDERIZADO DE MODELOS 
 
 		glm::mat4 model(1.0f);
+		glm::mat4 modelAux(1.0f);
 		float spacing = 0.0f;
 		float currentX = 0.0f;
 
@@ -436,24 +449,32 @@ int main() {
 		currentX += spacing;
 		*/
 
-		/*
-		//    -------- BICCICLETA ------
+		//    -------- BICICLETA ------	
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		llantasbici.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		cadena.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		model = glm::translate(model, PosBici);
+		modelAux = model;
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cuerpo.Draw(lightingShader);
 
+		model = modelAux;
+		model = glm::translate(model, glm::vec3(0.0f, 1.7f, 3.16f));
+		model = glm::rotate(model, rotRueda, glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		llantasbici.Draw(lightingShader);
 
+		model = modelAux;
+		model = glm::translate(model, glm::vec3(0.0f, 1.7f, -1.9f));
+		model = glm::rotate(model, rotRueda, glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		llantasbici.Draw(lightingShader);
+
+		model = modelAux;
+		model = glm::translate(model, glm::vec3(0.07f, 1.55f, 0.9f));
+		model = glm::rotate(model, rotRueda, glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		cadena.Draw(lightingShader);
+		
+		/*
 
 		//      -------------------
 
@@ -1605,8 +1626,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Ciclovia.Draw(lightingShader);
-		*/
-
+		
 		//---------------------------------------------
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -1700,6 +1720,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
+		*/
 
 
 
