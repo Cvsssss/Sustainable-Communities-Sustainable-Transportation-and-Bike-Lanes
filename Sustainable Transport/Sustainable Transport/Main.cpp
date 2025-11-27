@@ -343,70 +343,7 @@ int main() {
 		float currentX = 0.0f;
 
 
-		// --- Maqueta ---
-		/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte1.Draw(lightingShader);
-		currentX += spacing;
-
-		// --- Maqueta ---
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte1.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte2.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte3.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte4.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte5.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte6.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte7.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte8.Draw(lightingShader);
-		currentX += spacing;
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Parte9.Draw(lightingShader);
-		currentX += spacing;
-		*/
+		//Carga de Modelos
 
 		/*
 		// --- Antena_Telecom ---
@@ -469,6 +406,15 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
+		currentX += spacing;
+		*/
+
+		// --- Banqueta ---
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		BanquetaEsquina.Draw(lightingShader);
 		currentX += spacing;
 		*/
 
@@ -1000,18 +946,6 @@ int main() {
 
 		//---------------MAQUETA--------------------
 
-		//PASTO
-		float offsetPasto = 15.0f;
-		for (int x = -1; x <= 1; x++) {
-			for (int z = -1; z <= 1; z++) {
-				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(x * offsetPasto, 0.0f, z * offsetPasto));
-				model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
-				glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-				pasto.Draw(lightingShader);
-			}
-		}
-
 		// --- KIOSKO CENTRAL ---
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -1175,124 +1109,271 @@ int main() {
 
 
 
+		//	1. PASTO
+
+		float offsetPasto = 15.0f;
+		for (int x = -1; x <= 1; x++) {
+			for (int z = -1; z <= 1; z++) {
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(x * offsetPasto, 0.0f, z * offsetPasto));
+				model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
+				glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+				pasto.Draw(lightingShader);
+			}
+		}
+
 		// 2. BANQUETAS 
 		// ==========================================
-		// LADO TRASERO (Z = -24.0) 
+		// LADO TRASERO
 		// ==========================================
 
-		// Pieza Trasera 1 (Izquierda)
+		
+		// Pieza Esquina
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-17.0f, 0.0f, -26.4f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -18.56f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		BanquetaEsquina.Draw(lightingShader);
+	
+
+		// Pieza Trasera 1 (der)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3( -2.9f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		/*
-		// Pieza Trasera 2 (Centro-Izquierda)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-6.0f, 0.0f, -24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-4.8f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Trasera 3 (Centro)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-6.7f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-8.6f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Trasera 4 (Centro-Derecha)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(6.0f, 0.0f, -24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.5f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Trasera 5 (Derecha)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(12.0f, 0.0f, -24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-12.4f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
-		*/
 
-		/*
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-14.3f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-16.2f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-18.1f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-14.0f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		
 		// ==========================================
 		// LADO DELANTERO (Z = 24.0)
 		// ==========================================
 
-		// Pieza Delantera 1 (Izquierda)
+		
+		// Pieza Esquina
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(18.56f, 0.0f, 10.2f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		BanquetaEsquina.Draw(lightingShader);
+		
+
+		// Pieza Trasera 1 (der)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(2.9f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Delantera 2 (Centro-Izquierda)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-12.0f, 0.0f, 24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(4.8f, 0.0f, 10.2f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Delantera 3 (Centro)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(6.7f, 0.0f, 10.2f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(8.6f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Delantera 4 (Centro-Derecha)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(12.0f, 0.0f, 24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.5f, 0.0f, 10.2f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Delantera 5 (Derecha)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 24.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(12.4f, 0.0f, 10.2f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(14.3f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(16.2f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(18.1f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(14.0f, 0.0f, 10.2f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		
 		// ==========================================
 		// LADO IZQUIERDO (X = -24.0)
 		// ==========================================
 
-		// Pieza Izquierda 1 (Arriba)
+		// Pieza Esquina
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, -12.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-18.56f, 0.0f, -10.2f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		BanquetaEsquina.Draw(lightingShader);
+
+		// Pieza Trasera 1 (der)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 2.9f));
 		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Izquierda 2 (Centro)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 4.8f));
 		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Izquierda 3 (Abajo)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-24.0f, 0.0f, 12.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 6.7f));
 		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 8.6f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 10.5f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 12.4f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 14.3f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 16.2f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 18.1f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 14.0f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
@@ -1301,32 +1382,84 @@ int main() {
 		// LADO DERECHO (X = 24.0)
 		// ==========================================
 
-		// Pieza Derecha 1 (Arriba)
+		// Pieza Esquina
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(24.0f, 0.0f, -12.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-10.2f, 0.0f, 18.56f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		BanquetaEsquina.Draw(lightingShader);
+
+		// Pieza Trasera 1 (der)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -2.9f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Derecha 2 (Centro)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -4.8f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		// Pieza Derecha 3 (Abajo)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(24.0f, 0.0f, 12.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -6.7f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
-		*/
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -8.6f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -10.5f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -12.4f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -14.3f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -16.2f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -18.1f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(10.2f, 0.0f, -14.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Banqueta.Draw(lightingShader);
 
 		// Dibujo Luces
 		lampShader.Use();

@@ -3,7 +3,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Banqueta.png
+map_Kd Banqueta(1).jpg
 Ni 1.00
 newmtl Banqueta:lambert14SG
 illum 4
@@ -26,9 +26,31 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Banqueta(2).png
 Ni 1.00
-newmtl lambert2SG
+newmtl BanquetaEsquina:initialShadingGroup
 illum 4
-Kd 0.50 0.50 0.50
+Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
+map_Kd Banqueta.png
+Ni 1.00
+newmtl BanquetaEsquina:lambert14SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Banqueta.png
+Ni 1.00
+newmtl BanquetaEsquina:lambert16SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Banqueta(1).jpg
+Ni 1.00
+newmtl BanquetaEsquina:lambert17SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Banqueta(2).png
 Ni 1.00
