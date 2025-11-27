@@ -162,7 +162,7 @@ int main() {
 	*/
 
 	// CARGA DE LOS MODELOS
-
+	/*
 	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	Model arbol((char*)"Models/arbol/arbol.obj");
 	Model arbol2((char*)"Models/arbol2/arbol2.obj");
@@ -171,8 +171,21 @@ int main() {
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
-	Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
-
+	*/
+	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
+	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
+	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
+	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
+	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
+	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
+	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
+	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
+	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
+	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
+	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
+	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
+	
+	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
@@ -243,7 +256,7 @@ int main() {
 	Model aspas((char*)"Models/turb/aspas.obj");
 
 	Model valla((char*)"Models/valla/valla.obj");
-
+	*/
 
 
 	// Buffers
@@ -779,7 +792,7 @@ int main() {
 
 
 		 //------------ PERRO ------------
-
+		/*
 		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f); 
 		float dogRotAngle = 0.0f;      
 		float movDogHead = 0.0f;        
@@ -795,7 +808,7 @@ int main() {
 		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
 		glm::mat4 modelTemp; 
 
-		/* BODY (CUERPO) - Matriz Base  */
+		// BODY (CUERPO) - Matriz Base  
 		model = glm::mat4(1.0f);
 		dogPos.z = dogPos.z + forwardMovement;
 		model = glm::translate(model, dogPos);
@@ -804,14 +817,14 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		DogBody.Draw(lightingShader);
 
-		/* 2. HEAD (CABEZA)  */
+		// 2. HEAD (CABEZA)  
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.093f, 0.208f)); // Traslación Local de tu modelo
 		modelTemp = glm::rotate(modelTemp, glm::radians(movDogHead), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogHead.Draw(lightingShader);
 
-		/* 3. TAIL (COLA) */
+		// 3. TAIL (COLA) 
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.026f, -0.288f)); 
 		modelTemp = glm::rotate(modelTemp, glm::radians(movDogTail), glm::vec3(0.0f, 0.0f, -1.0f));
@@ -819,33 +832,34 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogTail.Draw(lightingShader);
 
-		/*  4. FRONT LEFT LEG  */
+		//  4. FRONT LEFT LEG  
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.112f, -0.044f, 0.074f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegF.Draw(lightingShader);
 
-		/*  5. FRONT RIGHT LEG */
+		//  5. FRONT RIGHT LEG 
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(-0.111f, -0.055f, 0.074f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegF.Draw(lightingShader);
 
-		/*  6. BACK LEFT LEG (PATA TRASERA IZQUIERDA) - Contrafase  */
+		//  6. BACK LEFT LEG (PATA TRASERA IZQUIERDA) - Contrafase  
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.082f, -0.046f, -0.218f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegB.Draw(lightingShader);
 
-		/*  7. BACK RIGHT LEG (PATA TRASERA DERECHA) - Caminata  */
+		//  7. BACK RIGHT LEG (PATA TRASERA DERECHA) - Caminata  
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(-0.083f, -0.057f, -0.231f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegB.Draw(lightingShader);
+		*/
 
 		/*
 		// -- Piedra_Decorativa ---
@@ -980,8 +994,8 @@ int main() {
 		*/
 
 		//---------------MAQUETA--------------------
-
-		// --- KIOSKO CENTRAL ---*/
+		/*
+		// --- KIOSKO CENTRAL ---/
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -1145,35 +1159,15 @@ int main() {
 
 		//--------------------CUADRA----------------------------------
 
-		// Configuración de la cuadrícula principal
-		float distanciaEntreCuadras = 95.0f; // Separación entre los centros de las islas de pasto
-
-		// Ciclos externos: Generan las 9 cuadras (gridX, gridZ van de -1 a 1)
-		for (int gridX = -1; gridX <= 1; gridX++) {
-			for (int gridZ = -1; gridZ <= 1; gridZ++) {
-
-				// Calculamos el centro de la cuadra actual
-				glm::vec3 centroCuadra = glm::vec3(gridX * distanciaEntreCuadras, 0.0f, gridZ * distanciaEntreCuadras);
-
-				// Ciclos internos: Generan el bloque de pasto grande (compuesto de 3x3 pastos pequeños)
-				// Esto es necesario porque tu modelo de pasto es pequeño y se necesitan 9 para hacer una base decente.
-				float separacionPastoInterno = 15.0f;
-
-				for (int px = -1; px <= 1; px++) {
-					for (int pz = -1; pz <= 1; pz++) {
-						glm::mat4 model = glm::mat4(1.0f);
-
-						// Posición final = Centro de la cuadra + posición interna del parche de pasto
-						glm::vec3 posicionFinal = centroCuadra + glm::vec3(px * separacionPastoInterno, 0.0f, pz * separacionPastoInterno);
-
-						model = glm::translate(model, posicionFinal);
-						// Escala original que estabas usando
-						model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
-
-						glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-						pasto.Draw(lightingShader);
-					}
-				}
+		// 1. EL PASTO
+		float d_pasto = 15.0f;
+		for (int x = -1; x <= 1; x++) {
+			for (int z = -1; z <= 1; z++) {
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(x * d_pasto, 0.0f, z * d_pasto));
+				model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
+				glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+				pasto.Draw(lightingShader);
 			}
 		}
 
@@ -1609,19 +1603,85 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Ciclovia.Draw(lightingShader);
+		*/
 
-
+		//---------------------------------------------
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra.Draw(lightingShader);
+		pisoCuadra.Draw(lightingShader);
 		
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		banquetaCuadra.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra1.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra2.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra3.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra4.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra5.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra6.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra7.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra8.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Cuadra9.Draw(lightingShader);
 
 
 
