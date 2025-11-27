@@ -105,12 +105,6 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd hoja.jpg
 Ni 1.00
-newmtl Cuadra:initialShadingGroup4
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
 newmtl Cuadra:initialShadingGroup6
 illum 4
 Kd 0.00 0.00 0.00
@@ -191,24 +185,12 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd amatop.jpg
 Ni 1.00
-newmtl Cuadra:lambert4SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
 newmtl Cuadra:lambert5SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd plasticneg.jpg
-Ni 1.00
-newmtl Cuadra:lambert5SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
 Ni 1.00
 newmtl Cuadra:lambert6SG
 illum 4
@@ -700,15 +682,6 @@ map_Kd Columpio.png
 Ni 1.50
 Ks 0.50 0.50 0.50
 Ns 250.00
-newmtl edificio2:phong1SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd edificioTexture2.jpg
-Ni 1.00
-Ks 0.50 0.50 0.50
-Ns 18.00
 newmtl kiosko:Arbour_boxes
 illum 4
 Kd 0.00 0.00 0.00
