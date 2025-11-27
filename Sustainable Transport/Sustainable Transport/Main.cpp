@@ -62,11 +62,14 @@ float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
 
 float timeValue = (float)glfwGetTime(); // Ejemplo de cómo obtener el tiempo
 
-
-// Variables para la anumacion de la bici 
-glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, 0.0f);
+// Variables para la bici
+glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, 0.0f); // Posición inicial
 float rotRueda = 0.0f;
-float velocidadBici = 1.0f;
+float velocidadBici = 8.0f;
+float anguloBici = 0.0f;      
+float anguloObjetivo = 0.0f;
+float distRecorrida = 0.0f;   
+bool estaGirando = false;
 
 // Tiempo
 GLfloat deltaTime = 0.0f;
@@ -163,9 +166,10 @@ int main() {
 	animacionPersonaje.initShaders(animShader.Program);
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
+	*/
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
-	*/
+	
 
 	// CARGA DE LOS MODELOS
 	/*
@@ -333,10 +337,35 @@ int main() {
 				estadoPatrulla = 0;
 		}
 
-		// Animacion de la bici 
-		if (PosBici.z < 50.0f) {
-			PosBici.z += velocidadBici * deltaTime;
-			rotRueda -= (velocidadBici * deltaTime);
+		// Animacion de la bici
+
+		float velocidadGiro = 45.0f;
+		float avance = velocidadBici * deltaTime;
+		float giro = velocidadGiro * deltaTime;
+
+		if (!estaGirando) {
+			PosBici.x += avance * sin(glm::radians(anguloBici));
+			PosBici.z += avance * cos(glm::radians(anguloBici));
+			distRecorrida += avance;
+			rotRueda -= avance; 
+			// Aqui cambiar el 50 por el valor de distancia al que quieran que gire la bici 
+			if (distRecorrida >= 50.0f) {
+				distRecorrida = 0.0f;      
+				estaGirando = true;        
+				anguloObjetivo += 90.0f; 
+			}
+		}
+
+		else {
+			anguloBici += giro;
+			PosBici.x += avance * sin(glm::radians(anguloBici));
+			PosBici.z += avance * cos(glm::radians(anguloBici));
+			rotRueda -= avance;
+
+			if (anguloBici >= anguloObjetivo) {
+				anguloBici = anguloObjetivo;
+				estaGirando = false;
+			}
 		}
 
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
@@ -452,6 +481,8 @@ int main() {
 		//    -------- BICICLETA ------	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, PosBici);
+		model = glm::rotate(model, glm::radians(anguloBici), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		modelAux = model;
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cuerpo.Draw(lightingShader);
@@ -1790,15 +1821,16 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje2.Draw(animShader);
+		*/
 
-
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -5.0f));
+		// Animacion de humano en la bici 
+		model = modelAux;
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f,0.0f));
 		model = glm::scale(model, glm::vec3(0.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
-		*/
+		
 
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
