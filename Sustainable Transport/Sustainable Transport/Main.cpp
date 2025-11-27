@@ -1108,17 +1108,37 @@ int main() {
 		arbusto.Draw(lightingShader);
 
 
+		//--------------------CUADRA----------------------------------
 
-		//	1. PASTO
+		// Configuración de la cuadrícula principal
+		float distanciaEntreCuadras = 95.0f; // Separación entre los centros de las islas de pasto
 
-		float offsetPasto = 15.0f;
-		for (int x = -1; x <= 1; x++) {
-			for (int z = -1; z <= 1; z++) {
-				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(x * offsetPasto, 0.0f, z * offsetPasto));
-				model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
-				glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-				pasto.Draw(lightingShader);
+		// Ciclos externos: Generan las 9 cuadras (gridX, gridZ van de -1 a 1)
+		for (int gridX = -1; gridX <= 1; gridX++) {
+			for (int gridZ = -1; gridZ <= 1; gridZ++) {
+
+				// Calculamos el centro de la cuadra actual
+				glm::vec3 centroCuadra = glm::vec3(gridX * distanciaEntreCuadras, 0.0f, gridZ * distanciaEntreCuadras);
+
+				// Ciclos internos: Generan el bloque de pasto grande (compuesto de 3x3 pastos pequeños)
+				// Esto es necesario porque tu modelo de pasto es pequeño y se necesitan 9 para hacer una base decente.
+				float separacionPastoInterno = 15.0f;
+
+				for (int px = -1; px <= 1; px++) {
+					for (int pz = -1; pz <= 1; pz++) {
+						glm::mat4 model = glm::mat4(1.0f);
+
+						// Posición final = Centro de la cuadra + posición interna del parche de pasto
+						glm::vec3 posicionFinal = centroCuadra + glm::vec3(px * separacionPastoInterno, 0.0f, pz * separacionPastoInterno);
+
+						model = glm::translate(model, posicionFinal);
+						// Escala original que estabas usando
+						model = glm::scale(model, glm::vec3(15.0f, 15.0f, 15.0f));
+
+						glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+						pasto.Draw(lightingShader);
+					}
+				}
 			}
 		}
 
@@ -1127,7 +1147,7 @@ int main() {
 		// LADO TRASERO
 		// ==========================================
 
-		
+
 		// Pieza Esquina
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -1135,12 +1155,12 @@ int main() {
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BanquetaEsquina.Draw(lightingShader);
-	
+
 
 		// Pieza Trasera 1 (der)
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
-		model = glm::translate(model, glm::vec3( -2.9f, 0.0f, -10.2f));
+		model = glm::translate(model, glm::vec3(-2.9f, 0.0f, -10.2f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
@@ -1207,12 +1227,12 @@ int main() {
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
-		
+
 		// ==========================================
 		// LADO DELANTERO (Z = 24.0)
 		// ==========================================
 
-		
+
 		// Pieza Esquina
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -1220,7 +1240,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		BanquetaEsquina.Draw(lightingShader);
-		
+
 
 		// Pieza Trasera 1 (der)
 		model = glm::mat4(1.0f);
@@ -1293,7 +1313,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
 
-		
+
 		// ==========================================
 		// LADO IZQUIERDO (X = -24.0)
 		// ==========================================
@@ -1460,6 +1480,108 @@ int main() {
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Banqueta.Draw(lightingShader);
+
+
+		//CICLOVIA
+
+		//IZQ
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, 3.91f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, -3.91f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+
+		//IZQ
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(-4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, 3.91f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(-4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(-4.5f, 1.0f, 3.6f));
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, -3.91f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+
+		//ATRAS
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(3.91f, 0.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+
+		//ADELANTE
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 7.0F));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.6f, 1.0f, 4.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Ciclovia.Draw(lightingShader);
+
+		
+
+
+
+
+
+
 
 		// Dibujo Luces
 		lampShader.Use();
