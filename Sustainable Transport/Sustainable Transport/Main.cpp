@@ -60,6 +60,8 @@ int estadoPatrulla = 0; // 0:Adelante, 1:Derecha, 2:Atrás, 3:Izquierda
 float recorrido = 0.0f; // Contador de cuánto ha caminado en el tramo actual
 float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
 
+float timeValue = (float)glfwGetTime(); // Ejemplo de cómo obtener el tiempo
+
 // Tiempo
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -775,45 +777,75 @@ int main() {
 		*/
 
 
-		// ------------ PERRO ------------
-		/*
+		 //------------ PERRO ------------
+
+		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f); 
+		float dogRotAngle = 0.0f;      
+		float movDogHead = 0.0f;        
+		float movDogTail = 0.0f;        
+		// Variables para el Movimiento Constante
+		float timeValue = (float)glfwGetTime(); 
+		float forwardSpeed = 0.5f;              
+		float animationSpeed = 5.0f;            
+		float legMaxAngle = 20.0f;              
+		float tailMaxAngle = 15.0f;             
+		float forwardMovement = forwardSpeed * timeValue; 
+		float legMovement = legMaxAngle * sin(animationSpeed * timeValue);
+		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
+		glm::mat4 modelTemp; 
+
+		/* BODY (CUERPO) - Matriz Base  */
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
+		dogPos.z = dogPos.z + forwardMovement;
+		model = glm::translate(model, dogPos);
+		model = glm::rotate(model, glm::radians(dogRotAngle), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelTemp = model;
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		DogBody.Draw(lightingShader);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		/* 2. HEAD (CABEZA)  */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.093f, 0.208f)); // Traslación Local de tu modelo
+		modelTemp = glm::rotate(modelTemp, glm::radians(movDogHead), glm::vec3(0.0f, 0.0f, 1.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogHead.Draw(lightingShader);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		DogLeftLegB.Draw(lightingShader);
+		/* 3. TAIL (COLA) */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.026f, -0.288f)); 
+		modelTemp = glm::rotate(modelTemp, glm::radians(movDogTail), glm::vec3(0.0f, 0.0f, -1.0f));
+		modelTemp = glm::rotate(modelTemp, glm::radians(tailMovement), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
+		DogTail.Draw(lightingShader);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		/*  4. FRONT LEFT LEG  */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.112f, -0.044f, 0.074f));
+		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegF.Draw(lightingShader);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		DogRightLegB.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		/*  5. FRONT RIGHT LEG */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(-0.111f, -0.055f, 0.074f));
+		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegF.Draw(lightingShader);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0F, 0.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		DogTail.Draw(lightingShader);
-		*/
+		/*  6. BACK LEFT LEG (PATA TRASERA IZQUIERDA) - Contrafase  */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.082f, -0.046f, -0.218f));
+		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
+		DogLeftLegB.Draw(lightingShader);
 
-		// --------------------------------
+		/*  7. BACK RIGHT LEG (PATA TRASERA DERECHA) - Caminata  */
+		modelTemp = model;
+		modelTemp = glm::translate(modelTemp, glm::vec3(-0.083f, -0.057f, -0.231f));
+		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
+		DogRightLegB.Draw(lightingShader);
+
 		/*
 		// -- Piedra_Decorativa ---
 
@@ -922,16 +954,18 @@ int main() {
 		*/
 
 		// --- Turbina ---
-/*
 
+/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		model = glm::rotate(model, (float)glfwGetTime() * 2.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		aspas.Draw(lightingShader);
 		currentX += spacing;
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		posteTurb.Draw(lightingShader);
 		currentX += spacing;
@@ -946,7 +980,7 @@ int main() {
 
 		//---------------MAQUETA--------------------
 
-		// --- KIOSKO CENTRAL ---
+		// --- KIOSKO CENTRAL ---*/
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -1106,7 +1140,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		arbusto.Draw(lightingShader);
-
+		
 
 
 		//	1. PASTO
