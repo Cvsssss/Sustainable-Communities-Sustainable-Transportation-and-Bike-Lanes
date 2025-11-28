@@ -167,12 +167,13 @@ int main() {
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
 	*/
+	/*
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
 	
 
 	// CARGA DE LOS MODELOS
-	/*
+	
 	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
 	Model arbol((char*)"Models/arbol/arbol.obj");
 	Model arbol2((char*)"Models/arbol2/arbol2.obj");
@@ -181,7 +182,7 @@ int main() {
 	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
 	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
 	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
-	
+	*/
 	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
@@ -196,8 +197,8 @@ int main() {
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
-	*/
 	
+	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
@@ -478,6 +479,7 @@ int main() {
 		currentX += spacing;
 		*/
 
+		/*
 		//    -------- BICICLETA ------	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, PosBici);
@@ -504,7 +506,7 @@ int main() {
 		model = glm::rotate(model, rotRueda, glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cadena.Draw(lightingShader);
-		
+		*/
 		/*
 
 		//      -------------------
@@ -1657,7 +1659,8 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Ciclovia.Draw(lightingShader);
-		
+		*/
+
 		//---------------------------------------------
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -1751,7 +1754,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
-		*/
+		
 
 
 
@@ -1823,6 +1826,7 @@ int main() {
 		animacionPersonaje2.Draw(animShader);
 		*/
 
+		/*
 		// Animacion de humano en la bici 
 		model = modelAux;
 		model = glm::translate(model, glm::vec3(0.0f, 6.0f,1.0f));
@@ -1831,7 +1835,9 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
-		
+		*/
+
+
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
 		view = glm::mat4(glm::mat3(camera.GetViewMatrix()));
