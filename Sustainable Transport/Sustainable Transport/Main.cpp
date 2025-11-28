@@ -47,14 +47,15 @@ bool firstMouse = true;
 // Window dimensions
 
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
-glm::vec3 PosIni(-95.0f, 1.0f, -45.0f);
+glm::vec3 PosIni(-50.0f, 1.0f, -7.0f);
+// CAMBIALO A:
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 float range = 0.0f;
 float rot = 0.0f;
 float animDesplazamiento = 0.0f;
-float animVelocidad = 5.0f;
+float animVelocidad = 2.0f;
 // Variables para la animación de patrulla
-glm::vec3 animPos = glm::vec3(PosIni.x + 3.0f, PosIni.y - 1.0f, PosIni.z); // Posición inicial
+glm::vec3 animPos = glm::vec3(PosIni.x, PosIni.y, PosIni.z); // Posición inicial
 float animRot = 0.0f;   // Rotación actual del modelo (grados)
 int estadoPatrulla = 0; // 0:Adelante, 1:Derecha, 2:Atrás, 3:Izquierda
 float recorrido = 0.0f; // Contador de cuánto ha caminado en el tramo actual
@@ -199,17 +200,21 @@ int main() {
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
+	/*
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
+	*/
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
+	/*
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
+	*/
 	
 	/*
 	//BICICLETA
@@ -230,9 +235,7 @@ int main() {
 
 
 	*/
-	//TURBINA
-	Model posteTurb((char*)"Models/turb/posteTurb.obj");
-	Model aspas((char*)"Models/turb/aspas.obj");
+	
 	
 	
 	
@@ -273,37 +276,37 @@ int main() {
 
 		switch (estadoPatrulla)
 		{
-		case 0:
+		case 0: // Caminar en Z positivo
 			animPos.z += velocidadReal;
-			animRot = 0.0f;
+			animRot = 0.0f; // Mirando hacia +Z
 			break;
-		case 1:
+		case 1: // Caminar en X positivo
 			animPos.x += velocidadReal;
-			animRot = 90.0f;
+			animRot = 90.0f; // Girar 90 grados
 			break;
-		case 2:
+		case 2: // Caminar en Z negativo
 			animPos.z -= velocidadReal;
-			animRot = 180.0f;
+			animRot = 180.0f; // Mirando hacia atrás
 			break;
-		case 3:
+		case 3: // Caminar en X negativo
 			animPos.x -= velocidadReal;
-			animRot = 270.0f;
+			animRot = 270.0f; // Mirando hacia izquierda
 			break;
 		}
 
-
+		// Aumentar el contador de distancia recorrida
 		recorrido += velocidadReal;
 
+		// ¿Llegamos a la esquina?
 		if (recorrido > distPatrulla)
 		{
-			recorrido = 0.0f;
-			estadoPatrulla++;
+			recorrido = 0.0f; // Reiniciar contador para el siguiente tramo
+			estadoPatrulla++; // Cambiar al siguiente estado/dirección
 
-
+			// Si pasamos del estado 3, volvemos al 0 (bucle infinito)
 			if (estadoPatrulla > 3)
 				estadoPatrulla = 0;
 		}
-
 
 		if (animBusActiva) {
 			float avance = busVelocidad * deltaTime;
@@ -642,24 +645,7 @@ int main() {
 		currentX += spacing;
 		*/
 
-		// --- Turbina ---
-
-
-		model = glm::mat4(1.0f);
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		posteTurb.Draw(lightingShader);
-		glm::vec3 posicionTurbina = glm::vec3(-39.076f, 10.881f, -0.507f);
-		model = glm::mat4(1.0f);
-
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		posteTurb.Draw(lightingShader);
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, posicionTurbina);
-		model = glm::rotate(model, (float)glfwGetTime() * 5.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::scale(model, glm::vec3(2.941f, 2.829f, 1.949f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		aspas.Draw(lightingShader);
-		
+	
 		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -691,6 +677,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		crucesCuadra.Draw(lightingShader);
 
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -719,13 +706,14 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra4.Draw(lightingShader);
 
+		*/
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -753,14 +741,14 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
-
+		*/
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		extrasCuadra.Draw(lightingShader);
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, busPos);
 		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -769,7 +757,7 @@ int main() {
 		Bus.Draw(lightingShader);
 		LlantasBus.Draw(lightingShader);
 
-
+		*/
 		glBindVertexArray(0);
 		// Dibujo Luces
 		lampShader.Use();
@@ -807,11 +795,11 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
 
+	
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 10.0f));
+		model = glm::translate(model, animPos); // <--- Volvemos a usar animPos
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.08f));
-
+		model = glm::scale(model, glm::vec3(0.02f)); // O la escala que te funcionó en la prueba (ej. 0.1f)
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje.Draw(animShader);
 
