@@ -63,7 +63,7 @@ float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
 float timeValue = (float)glfwGetTime(); // Ejemplo de cómo obtener el tiempo
 
 // Variables para la bici
-glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, 0.0f); // Posición inicial
+glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, -30.0f); // Posición inicial
 float rotRueda = 0.0f;
 float velocidadBici = 8.0f;
 float anguloBici = 0.0f;      
@@ -349,7 +349,7 @@ int main() {
 			distRecorrida += avance;
 			rotRueda -= avance; 
 			// Aqui cambiar el 50 por el valor de distancia al que quieran que gire la bici 
-			if (distRecorrida >= 50.0f) {
+			if (distRecorrida >= 30.0f) {
 				distRecorrida = 0.0f;      
 				estaGirando = true;        
 				anguloObjetivo += 90.0f; 
@@ -1825,13 +1825,13 @@ int main() {
 
 		// Animacion de humano en la bici 
 		model = modelAux;
-		model = glm::translate(model, glm::vec3(10.0f, 0.0f,0.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
+		model = glm::translate(model, glm::vec3(0.0f, 6.0f,1.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.02f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
 		
-
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
 		view = glm::mat4(glm::mat3(camera.GetViewMatrix()));
