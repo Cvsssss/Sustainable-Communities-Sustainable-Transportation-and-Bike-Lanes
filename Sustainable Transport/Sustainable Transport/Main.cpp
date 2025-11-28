@@ -77,17 +77,20 @@ GLfloat lastFrame = 0.0f;
 
 // Luces
 glm::vec3 pointLightPositions[] = {
-	// Luz 0: KIOSKO 
-	glm::vec3(0.0f, 7.8f, 0.0f),
+	// Fila Trasera (Z negativa)
+	glm::vec3(-95.0f, -2.0f, -95.0f), // Cuadra 1
+	glm::vec3(0.0f, -2.0f, -95.0f), // Cuadra 2
+	glm::vec3(95.0f, -2.0f, -95.0f), // Cuadra 3
 
-	// Luz 1: Lámpara 1 
-	glm::vec3(3.8f, 7.3f, 17.0f),
-	// Luz 2: Lámpara 2 
-	glm::vec3(17.0f, 7.3f, -3.8f),
-	// Luz 3: Lámpara 3
-	glm::vec3(-3.8f, 7.3f, -17.0f),
-	// Luz 4: Lámpara 4 
-	glm::vec3(-17.0f, 7.3f, 3.8f)
+	// Fila Central (Z cerca de 0)
+	glm::vec3(-95.0f, -2.0f,    0.0f), // Cuadra 4
+	glm::vec3(0.0f, -2.0f,    0.0f), // Cuadra 5 (CENTRO - Luz ambiental alta sobre el parque)
+	glm::vec3(95.0f, -2.0f,    0.0f), // Cuadra 6
+
+	// Fila Delantera (Z positiva)
+	glm::vec3(-95.0f, -2.0f,  95.0f), // Cuadra 7
+	glm::vec3(0.0f, -2.0f,  95.0f), // Cuadra 8
+	glm::vec3(95.0f, -2.0f,  95.0f)  // Cuadra 9
 };
 
 // Geometría básica
@@ -385,15 +388,15 @@ int main() {
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 9; i++) {
 			std::string num = std::to_string(i);
 			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].position").c_str()), pointLightPositions[i].x, pointLightPositions[i].y, pointLightPositions[i].z);
-			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].ambient").c_str()), 0.1f, 0.1f, 0.1f);
-			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].diffuse").c_str()), 1.0f, 1.0f, 1.0f);
+			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].ambient").c_str()), 0.15f, 0.15f, 0.15f);
+			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].diffuse").c_str()), 0.15f, 0.15f, 0.15f);
 			glUniform3f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].specular").c_str()), 1.0f, 1.0f, 1.0f);
 			glUniform1f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].constant").c_str()), 1.0f);
-			glUniform1f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].linear").c_str()), 0.09f);
-			glUniform1f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].quadratic").c_str()), 0.032f);
+			glUniform1f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].linear").c_str()), 0.022f);
+			glUniform1f(glGetUniformLocation(lightingShader.Program, ("pointLights[" + num + "].quadratic").c_str()), 0.0019f);
 		}
 
 		glm::mat4 view = camera.GetViewMatrix();
@@ -672,29 +675,13 @@ int main() {
 		
 
 
-
-		// Dibujo Luces
-		lampShader.Use();
-		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-		glBindVertexArray(VAO);
-		for (int i = 0; i < 5; i++) {
-			model = glm::mat4(1.0f); model = glm::translate(model, pointLightPositions[i]); model = glm::scale(model, glm::vec3(0.2f));
-			glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-			glDrawArrays(GL_TRIANGLES, 0, 36);
-		}
-
-		glBindVertexArray(0);
-
-
-
 		glBindVertexArray(0);
 		// Dibujo Luces
 		lampShader.Use();
 		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 		glBindVertexArray(VAO);
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 9; i++) {
 			model = glm::mat4(1.0f); model = glm::translate(model, pointLightPositions[i]); model = glm::scale(model, glm::vec3(0.2f));
 			glUniformMatrix4fv(glGetUniformLocation(lampShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 			glDrawArrays(GL_TRIANGLES, 0, 36);
