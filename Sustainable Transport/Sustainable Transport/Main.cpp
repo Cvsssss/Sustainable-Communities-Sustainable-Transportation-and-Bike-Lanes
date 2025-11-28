@@ -47,7 +47,7 @@ bool firstMouse = true;
 // Window dimensions
 
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
-glm::vec3 PosIni(-50.0f, 1.0f, -7.0f);
+glm::vec3 PosIni(-50.0f, 1.0f, -280.0f);
 // CAMBIALO A:
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 float range = 0.0f;
@@ -200,21 +200,22 @@ int main() {
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
-	/*
+	
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
-	*/
+	
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
-	/*
+	
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
+	
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
-	*/
+	
 	
 	/*
 	//BICICLETA
@@ -265,7 +266,7 @@ int main() {
 	skyboxShader.Use();
 	glUniform1i(glGetUniformLocation(skyboxShader.Program, "skybox"), 0);
 
-	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 200.0f);
+	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 1000.0f);
 
 	while (!glfwWindowShouldClose(window)) {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
@@ -677,7 +678,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		crucesCuadra.Draw(lightingShader);
 
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -706,14 +707,14 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra4.Draw(lightingShader);
 
-		*/
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -741,14 +742,14 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
-		*/
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		extrasCuadra.Draw(lightingShader);
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, busPos);
 		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -757,7 +758,7 @@ int main() {
 		Bus.Draw(lightingShader);
 		LlantasBus.Draw(lightingShader);
 
-		*/
+		
 		glBindVertexArray(0);
 		// Dibujo Luces
 		lampShader.Use();
