@@ -165,10 +165,10 @@ int main() {
 	/*
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
-	*/
+	
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
-
+	*/
 	
 	/*
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
@@ -703,7 +703,7 @@ int main() {
 
 		glBindVertexArray(0);
 
-		/*_______________________________Personaje Animado___________________________*/
+		/*_______________________________Personaje Animado___________________________
 		animShader.Use();
 		GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(lightingShader.Program, "view");
@@ -734,12 +734,15 @@ int main() {
 
 		
 		//animacionPersonaje.Draw(animShader);
+		animShader.Use();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(15.0f, 0.0f, -5.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
+		model = glm::translate(model, glm::vec3(-1.304f, -45.075f, -8.294f));
+		model = glm::rotate(model, glm::radians(-9.398f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-1.011f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(2.267f), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje2.Draw(animShader);
-		
+		*/
 
 		/*
 		// Animacion de humano en la bici 
