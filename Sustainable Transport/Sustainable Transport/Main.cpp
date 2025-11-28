@@ -71,6 +71,20 @@ float anguloObjetivo = 0.0f;
 float distRecorrida = 0.0f;   
 bool estaGirando = false;
 
+
+
+bool animBusActiva = false;
+int estadoBus = 0;
+
+glm::vec3 busPos(30.0f, 0.0f, 20.0f);
+float busAngulo = 270.0f;
+float correccionVisual = 90.0f;
+
+float busVelocidad = 10.0f;      
+float busVelGiro = 40.0f;      
+float busDistanciaRecorrida = 0.0f;
+float busAnguloAcumulado = 0.0f;
+float largoCuadra = 60.0f;
 // Tiempo
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -165,10 +179,10 @@ int main() {
 
 	
 	//Modelo de animación
-	/*
+	
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
-	
+	/*
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
 	*/
@@ -176,19 +190,9 @@ int main() {
 	/*
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
-	
-
-	// CARGA DE LOS MODELOS
-	
-	Model Antena_Telecom((char*)"Models/Antena_Telecom/Antena_Telecom.obj");
-	Model arbol((char*)"Models/arbol/arbol.obj");
-	Model arbol2((char*)"Models/arbol2/arbol2.obj");
-	Model arbusto((char*)"Models/arbusto/arbusto.obj");
-	Model bancaMad((char*)"Models/bancaMad/bancaMad.obj");
-	Model bancamadera((char*)"Models/bancamadera/bancamadera.obj");
-	Model Banqueta((char*)"Models/Banqueta/Banqueta.obj");
-	Model BanquetaEsquina((char*)"Models/BanquetaEsquina/BanquetaEsquina.obj");
 	*/
+
+
 	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
@@ -204,6 +208,8 @@ int main() {
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
+	Model Bus((char*)"Models/Bus/Bus.obj");
+	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
 	
 	/*
 	//BICICLETA
@@ -211,43 +217,7 @@ int main() {
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 
-	/*
-	Model bolardopeq((char*)"Models/bolardopeq/bolardopeq.obj");
-	Model BoteBasura((char*)"Models/BoteBasura/BoteBasura.obj");
-	Model BotedeReciclaje((char*)"Models/BotedeReciclaje/BotedeReciclaje.obj");
-	Model boteVerdeBasura((char*)"Models/boteVerdeBasura/boteVerdeBasura.obj");
-	Model bulardo((char*)"Models/bulardo/bulardo.obj");
-	Model Bus((char*)"Models/Bus/Bus.obj");
-	Model BuzonDeCorreo((char*)"Models/BuzonDeCorreo/BuzonDeCorreo.obj");
-	Model CamaraSeguridad((char*)"Models/CamaraSeguridad/CamaraSeguridad_Velocimetro.obj");
-	Model Ciclovia((char*)"Models/Ciclovia/Ciclovia.obj");
-	Model casco((char*)"Models/casco/casco.obj");
-	Model Cono((char*)"Models/Cono/Cono.obj");
-	Model CuboMoldeParaCasa((char*)"Models/CuboMoldeParaCasa/CuboMoldeParaCasa.obj");
-	Model Edificio((char*)"Models/Edificio/Edificio.obj");
-	//Model edificio2((char*)"Models/edificio2/edificio2.obj");
-	Model edificio3((char*)"Models/edificio3/edificio3.obj");
-	Model edificio4((char*)"Models/edificio4/edificio4.obj");
-	Model edificio5((char*)"Models/edificio5/edificio5.obj");
-	Model edificio6((char*)"Models/edificio6/edificio6.obj");
-	Model edificio7((char*)"Models/edificio7/edificio7.obj");
-	Model edificio8((char*)"Models/edificio8/edificio8.obj");
-	Model hidrante((char*)"Models/hidrante/hidrante.obj");
-	Model jardinera((char*)"Models/jardinera/jardinera.obj");
-	Model kiosko((char*)"Models/kiosko/kiosko.obj");
-	Model LamparaModerna((char*)"Models/LamparaModerna/LamparaModerna.obj");
-	Model LetreroAutobus((char*)"Models/LetreroAutobus/LetreroAutobus.obj");
-	Model mesa((char*)"Models/mesa/mesa.obj");
-
-
-	//columpio
-	Model cuerpoColumpio((char*)"Models/columpio/cuerpoColumpio.obj");
-	Model asientoColumpio((char*)"Models/columpio/asientosColumpio.obj");
-
-
-	Model palapa((char*)"Models/palapa/palapa.obj");
-	Model paradaAutobus((char*)"Models/paradaAutobus/paradaAutobus.obj");
-	Model pasto((char*)"Models/pasto/pasto.obj");
+	
 
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
@@ -259,24 +229,13 @@ int main() {
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
 
-	Model Piedra_Decorativa((char*)"Models/Piedra_Decorativa/Piedra_Decorativa.obj");
-	Model placas((char*)"Models/placas/placas.obj");
-	Model poste((char*)"Models/poste/poste.obj");
-	Model RampaDiscapacitados((char*)"Models/RampaDiscapacitados/RampaDiscapacitados.obj");
-	Model scooter((char*)"Models/scooter/scooter.obj");
-	Model scooterMoto((char*)"Models/scooterMoto/scooterMoto.obj");
-	Model StopLight((char*)"Models/StopLight/StopLight.obj");
-	Model StopSign((char*)"Models/StopSign/StopSign.obj");
-	Model TapaBuzon((char*)"Models/BuzonDeCorreo/TapaBuzon.obj");
-	Model tope((char*)"Models/tope/tope.obj");
-	Model Turbina((char*)"Models/TurbinaEolica/Turbina.obj");
-
+	*/
 	//TURBINA
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
 	Model aspas((char*)"Models/turb/aspas.obj");
-
-	Model valla((char*)"Models/valla/valla.obj");
-	*/
+	
+	
+	
 
 
 	// Buffers
@@ -343,6 +302,134 @@ int main() {
 
 			if (estadoPatrulla > 3)
 				estadoPatrulla = 0;
+		}
+
+
+		if (animBusActiva) {
+			float avance = busVelocidad * deltaTime;
+
+
+			switch (estadoBus) {
+
+			case 0:
+				busPos.x -= avance;
+				busDistanciaRecorrida += avance;
+				busAngulo = 270.0f;
+
+				if (busDistanciaRecorrida >= largoCuadra) {
+					busDistanciaRecorrida = 0.0f;
+					estadoBus = 1;
+				}
+				break;
+
+
+			case 1:
+			{   
+				float giro1 = 55.0f * deltaTime;
+
+				busPos.x += avance * sin(glm::radians(busAngulo));
+				busPos.z += avance * cos(glm::radians(busAngulo));
+
+				busAngulo -= giro1;
+				busAnguloAcumulado += giro1;
+
+				if (busAnguloAcumulado >= 90.0f) {
+					busAngulo = 180.0f;
+					busAnguloAcumulado = 0.0f;
+					estadoBus = 2;
+				}
+			}
+			break;
+
+			case 2:
+				busPos.z -= avance;
+				busDistanciaRecorrida += avance;
+				busAngulo = 180.0f;
+
+				if (busDistanciaRecorrida >= largoCuadra) {
+					busDistanciaRecorrida = 0.0f;
+					estadoBus = 3;
+				}
+				break;
+
+			case 3:
+			{
+				float giro2 = 25.0f * deltaTime; 
+
+				busPos.x += avance * sin(glm::radians(busAngulo));
+				busPos.z += avance * cos(glm::radians(busAngulo));
+
+				busAngulo -= giro2;
+				busAnguloAcumulado += giro2;
+
+				if (busAnguloAcumulado >= 90.0f) {
+					busAngulo = 90.0f;
+					busAnguloAcumulado = 0.0f;
+					estadoBus = 4;
+				}
+			}
+			break;
+
+			case 4:
+				busPos.x += avance;
+				busDistanciaRecorrida += avance;
+				busAngulo = 90.0f;
+
+				if (busDistanciaRecorrida >= largoCuadra) {
+					busDistanciaRecorrida = 0.0f;
+					estadoBus = 5;
+				}
+				break;
+
+
+			case 5:
+			{
+
+				float giro3 = 95.0f * deltaTime;
+
+				busPos.x += avance * sin(glm::radians(busAngulo));
+				busPos.z += avance * cos(glm::radians(busAngulo));
+
+				busAngulo -= giro3;
+				busAnguloAcumulado += giro3;
+
+				if (busAnguloAcumulado >= 90.0f) {
+					busAngulo = 0.0f;
+					busAnguloAcumulado = 0.0f;
+					estadoBus = 6;
+				}
+			}
+			break;
+
+			case 6:
+				busPos.z += avance;
+				busDistanciaRecorrida += avance;
+				busAngulo = 0.0f;
+
+				if (busDistanciaRecorrida >= largoCuadra) {
+					busDistanciaRecorrida = 0.0f;
+					estadoBus = 7;
+				}
+				break;
+
+			case 7:
+			{
+				float giro4 = 65.0f * deltaTime; 
+
+				busPos.x += avance * sin(glm::radians(busAngulo));
+				busPos.z += avance * cos(glm::radians(busAngulo));
+
+				busAngulo -= giro4;
+				busAnguloAcumulado += giro4;
+
+				if (busAnguloAcumulado >= 90.0f) {
+					busAngulo = 270.0f;
+					busAnguloAcumulado = 0.0f;
+					estadoBus = 0; 
+				}
+			}
+			break;
+			}
 		}
 
 		// Animacion de la bici
@@ -557,22 +644,23 @@ int main() {
 
 		// --- Turbina ---
 
-/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		model = glm::rotate(model, (float)glfwGetTime() * 2.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		aspas.Draw(lightingShader);
-		currentX += spacing;
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		posteTurb.Draw(lightingShader);
-		currentX += spacing;
-		*/
-		//---------------------------------------------
+		glm::vec3 posicionTurbina = glm::vec3(-39.076f, 10.881f, -0.507f);
+		model = glm::mat4(1.0f);
+
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		posteTurb.Draw(lightingShader);
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, posicionTurbina);
+		model = glm::rotate(model, (float)glfwGetTime() * 5.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(2.941f, 2.829f, 1.949f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		aspas.Draw(lightingShader);
+		
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -673,6 +761,13 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		extrasCuadra.Draw(lightingShader);
 		
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, busPos);
+		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Bus.Draw(lightingShader);
+		LlantasBus.Draw(lightingShader);
 
 
 		glBindVertexArray(0);
@@ -690,7 +785,9 @@ int main() {
 
 		glBindVertexArray(0);
 
-		/*_______________________________Personaje Animado___________________________
+
+
+		//_______________________________Personaje Animado___________________________
 		animShader.Use();
 		GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(lightingShader.Program, "view");
@@ -709,18 +806,16 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 1.0f, 1.0f, 1.0f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
-		view = camera.GetViewMatrix();
 
 		model = glm::mat4(1);
-
-		model = glm::translate(model, animPos);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 10.0f));
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
+		model = glm::scale(model, glm::vec3(0.08f));
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		animacionPersonaje.Draw(animShader);
 
-		
-		//animacionPersonaje.Draw(animShader);
+		/*
 		animShader.Use();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(-1.304f, -45.075f, -8.294f));
@@ -769,6 +864,10 @@ void DoMovement() {
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) glfwSetWindowShouldClose(window, GL_TRUE);
 	if (key >= 0 && key < 1024) { if (action == GLFW_PRESS) keys[key] = true; else if (action == GLFW_RELEASE) keys[key] = false; }
+
+	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
+		animBusActiva = !animBusActiva;
+	}
 }
 void MouseCallback(GLFWwindow* window, double xPos, double yPos) {
 	if (firstMouse) { lastX = xPos; lastY = yPos; firstMouse = false; }
