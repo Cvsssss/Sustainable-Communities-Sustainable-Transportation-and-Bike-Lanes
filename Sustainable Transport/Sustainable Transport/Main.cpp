@@ -188,6 +188,7 @@ int main() {
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
+	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
@@ -1754,6 +1755,13 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		extrasCuadra.Draw(lightingShader);
 		
 
 
