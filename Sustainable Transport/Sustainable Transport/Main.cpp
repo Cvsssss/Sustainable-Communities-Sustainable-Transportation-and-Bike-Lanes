@@ -197,24 +197,24 @@ int main() {
 	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
-	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
+	//Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
-	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
+	//Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
 	
-	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
-	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
-	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
-	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
+	//Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
+	//Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
+	//Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
+	//Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
 	
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
 	
-	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
-	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
-	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
-	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
+	//Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
+	//Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
+	//Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
+	//Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 	
-	Model Bus((char*)"Models/Bus/Bus.obj");
-	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
+	//Model Bus((char*)"Models/Bus/Bus.obj");
+	//Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
 	
 	
 	/*
@@ -668,7 +668,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		jardineraCuadra.Draw(lightingShader);
+		//jardineraCuadra.Draw(lightingShader);
 		
 
 		model = glm::mat4(1.0f);
@@ -684,28 +684,28 @@ int main() {
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra1.Draw(lightingShader);
+		//Cuadra1.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra2.Draw(lightingShader);
+		//Cuadra2.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra3.Draw(lightingShader);
+		//Cuadra3.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra4.Draw(lightingShader);
+		//Cuadra4.Draw(lightingShader);
 
 		
 		model = glm::mat4(1.0f);
@@ -720,43 +720,43 @@ int main() {
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra6.Draw(lightingShader);
+		//Cuadra6.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra7.Draw(lightingShader);
+		//Cuadra7.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra8.Draw(lightingShader);
+		//Cuadra8.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Cuadra9.Draw(lightingShader);
+		//Cuadra9.Draw(lightingShader);
 		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		extrasCuadra.Draw(lightingShader);
+		//extrasCuadra.Draw(lightingShader);
 		
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, busPos);
 		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Bus.Draw(lightingShader);
-		LlantasBus.Draw(lightingShader);
+		//Bus.Draw(lightingShader);
+		//LlantasBus.Draw(lightingShader);
 
 		
 		glBindVertexArray(0);
