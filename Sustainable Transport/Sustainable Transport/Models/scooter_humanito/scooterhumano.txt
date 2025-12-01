@@ -1,0 +1,74 @@
+// variables 
+bool animacionScooterActiva = false;        // Estado: false = quieto, true = moviéndose
+glm::vec3 scooterPosition = glm::vec3(10.0f, 0.0f, 10.0f); // Posición inicial
+float scooterSpeed = 8.0f;                  // Velocidad de movimiento
+
+// función para la animación 
+// --- ANIMACIÓN SCOOTER ---
+if (animacionScooterActiva)
+{
+    // Mover en el eje Z (puedes cambiar a X si tu calle va en otra dirección)
+    scooterPosition.z += scooterSpeed * deltaTime;
+
+    // Opcional: Si se va muy lejos, que regrese al inicio (Loop)
+    if (scooterPosition.x < -60.0f)
+    {
+        scooterPosition.x = 60.0f;
+    }
+}
+
+//Teclas
+ // Al presionar 8: Activar animación
+ if (key == GLFW_KEY_8 && action == GLFW_PRESS)
+ {
+     animacionScooterActiva = true;
+ }
+
+ // Al presionar 9: Detener animación
+ if (key == GLFW_KEY_9 && action == GLFW_PRESS)
+ {
+     animacionScooterActiva = false;
+ }
+
+
+// =========================================================
+//    DIBUJAR SCOOTER (PADRE) Y HUMANO (HIJO) por modelado jerárquico
+// =========================================================
+
+// ------------------------------------------
+// 1. dibujar el scooter
+// ------------------------------------------
+glm::mat4 modelScooter = glm::mat4(1.0f);
+
+// A) Traslación: Usamos la variable GLOBAL 'scooterPosition'
+modelScooter = glm::translate(modelScooter, scooterPosition);
+
+// B) Escala del Scooter, esta si la cambias, se va a cambiar también la de el humanito
+modelScooter = glm::scale(modelScooter, glm::vec3(5.0f, 5.0f, 5.0f));
+// Si tu calle va en Z, a veces hay que rotar 180 grados si el modelo vino al revés, ya ahí tu le mueves
+ modelScooter = glm::rotate(modelScooter, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+glUniformMatrix4fv(glGetUniformLocation(modelShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelScooter));
+scooterModel.Draw(modelShader);
+
+
+// ------------------------------------------
+// 2. Dibujar el humanito
+// ------------------------------------------
+
+// Empieza donde está el scooter, con su misma escala y rotación
+glm::mat4 modelHuman = modelScooter;
+
+// A) Ajuste de Posición (Offset)
+// Estos valores son para cambiar la escala del humanito
+modelHuman = glm::translate(modelHuman, glm::vec3(0.25f, 0.270f, 0.45f));
+
+// B) Escala Local
+// Si quieres que el humano tenga tamaño normal relativo al scooter (1.0f)
+modelHuman = glm::scale(modelHuman, glm::vec3(1.42f, 1.86f, 1.20f));
+
+// C) Rotación Local
+modelHuman = glm::rotate(modelHuman, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+glUniformMatrix4fv(glGetUniformLocation(modelShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelHuman));
+humanModel.Draw(modelShader);

@@ -73,7 +73,10 @@ float distRecorrida = 0.0f;
 bool estaGirando = false;
 
 
-
+bool animacionScooterActiva = false;
+glm::vec3 scooterPosition = glm::vec3(30.0f, 0.3f, 10.5f); // Posición inicial
+float scooterSpeed = 3.0f;
+ 
 bool animBusActiva = false;
 int estadoBus = 0;
 
@@ -212,9 +215,13 @@ int main() {
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
-	
+
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
+
+
+	Model scooterModel("Models/scooter_humanito/scooter.obj");
+	Model humanModel("Models/scooter_humanito/Humano.obj");
 	
 	
 	/*
@@ -435,6 +442,20 @@ int main() {
 			break;
 			}
 		}
+		// --- ANIMACIÓN SCOOTER ---
+		       // Estado: false = quieto, true = moviéndose
+		                  // Velocidad de movimiento
+		if (animacionScooterActiva)
+		{
+			// Mover en el eje Z (puedes cambiar a X si tu calle va en otra dirección)
+			scooterPosition.z += scooterSpeed * deltaTime;
+
+			// Opcional: Si se va muy lejos, que regrese al inicio (Loop)
+			if (scooterPosition.x < -60.0f)
+			{
+				scooterPosition.x = 60.0f;
+			}
+		}
 
 		// Animacion de la bici
 
@@ -623,15 +644,24 @@ int main() {
 
 
 		// --- SCOOTER  ---
-		/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		scooter.Draw(lightingShader);
-		currentX += spacing;
+		// variables 
+		
+		glm::mat4 modelScooter = glm::mat4(1.0f);
+		modelScooter = glm::translate(modelScooter, scooterPosition);
+		modelScooter = glm::scale(modelScooter, glm::vec3(1.5f, 1.5f, 1.5f));
+		modelScooter = glm::rotate(modelScooter, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelScooter));
+		scooterModel.Draw(lightingShader);
+
+		glm::mat4 modelHuman = modelScooter;
+		modelHuman = glm::translate(modelHuman, glm::vec3(0.25f, 0.270f, 0.45f));
+		modelHuman = glm::scale(modelHuman, glm::vec3(1.42f, 1.86f, 1.20f));
+		modelHuman = glm::rotate(modelHuman, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelHuman));
+		humanModel.Draw(lightingShader);
 
 		// --- scooterMoto  ---
-
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -856,6 +886,18 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
 		animBusActiva = !animBusActiva;
+	}
+
+	// Al presionar 8: Activar animación
+	if (key == GLFW_KEY_8 && action == GLFW_PRESS)
+	{
+		animacionScooterActiva = true;
+	}
+
+	// Al presionar 9: Detener animación
+	if (key == GLFW_KEY_9 && action == GLFW_PRESS)
+	{
+		animacionScooterActiva = false;
 	}
 }
 void MouseCallback(GLFWwindow* window, double xPos, double yPos) {

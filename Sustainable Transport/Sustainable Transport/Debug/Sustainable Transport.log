@@ -1,15 +1,15 @@
 ﻿  Main.cpp
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\modelAnim.h(107,53): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\modelAnim.h(107,53): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
   (compilando archivo de origen "Main.cpp")
   
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\modelAnim.h(458,30): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\modelAnim.h(458,30): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   (compilando archivo de origen "Main.cpp")
   
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(272,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(862,28): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(862,42): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(863,50): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(863,35): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(863,67): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(863,81): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-  Sustainable Transport.vcxproj -> C:\Users\fersp\Documents\FI\7mo\GRAFICA\PROYECTOFINAL\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Debug\Sustainable Transport.exe
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(279,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(904,28): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(904,42): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(905,50): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(905,35): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(905,67): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Sustainable Transport\Main.cpp(905,81): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  Sustainable Transport.vcxproj -> C:\Users\PC\Documents\Sustainable-Communities-Sustainable-Transportation-and-Bike-Lanes\Sustainable Transport\Debug\Sustainable Transport.exe
