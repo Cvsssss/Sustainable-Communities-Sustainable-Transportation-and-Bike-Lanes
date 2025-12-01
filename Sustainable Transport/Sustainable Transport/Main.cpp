@@ -191,19 +191,19 @@ int main() {
 
 
 	//Modelo de animación
-	
+	/*
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
 
-	/*
+	
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
-	*/
+	
 	ModelAnim animacionPersonaje4("Animaciones/Personaje5/Walking.fbx");
 	animacionPersonaje4.initShaders(animShader.Program);
-	
+	*/
 
-
+	/*
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
@@ -214,7 +214,9 @@ int main() {
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
+	*/
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
+	/*
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
@@ -228,7 +230,7 @@ int main() {
 	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
 
 	Model Biciestacionamiento((char*)"Models/Biciestacionamiento/Biciestacionamiento.obj");
-
+	*/
 	
 	/*
 	//BICICLETA
@@ -237,7 +239,7 @@ int main() {
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 	*/
 
-	/*
+	
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
@@ -247,13 +249,12 @@ int main() {
 	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
-	*/
 	
+	/*
 	//Turbina
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
 	Model aspas((char*)"Models/turb/aspas.obj");
-	
-
+	*/
 
 
 
@@ -613,7 +614,7 @@ int main() {
 		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
 		glm::mat4 modelTemp;
 
-		/*
+		
 		// BODY (CUERPO) - Matriz Base
 		model = glm::mat4(1.0f);
 		dogPos.z = dogPos.z + forwardMovement;
@@ -625,7 +626,7 @@ int main() {
 
 		// 2. HEAD (CABEZA)
 		modelTemp = model;
-		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.093f, 0.208f)); // Traslación Local de tu modelo
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.093f, 0.208f)); 
 		modelTemp = glm::rotate(modelTemp, glm::radians(movDogHead), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogHead.Draw(lightingShader);
@@ -641,7 +642,7 @@ int main() {
 		//  4. FRONT LEFT LEG
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.112f, -0.044f, 0.074f));
-		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
+		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegF.Draw(lightingShader);
 
@@ -665,8 +666,10 @@ int main() {
 		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegB.Draw(lightingShader);
-		*/
 		
+		
+
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -725,7 +728,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra4.Draw(lightingShader);
-
+		*/
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -733,7 +736,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-		
+		/*
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -831,7 +834,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(anguloAspas), glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		aspas.Draw(lightingShader);
-
+		*/
 
 		glBindVertexArray(0);
 		// Dibujo Luces
@@ -887,7 +890,7 @@ int main() {
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
 		
-		*/
+		
 		animShader.Use();
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
@@ -898,7 +901,7 @@ int main() {
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje4.Draw(animShader);
-		
+		*/
 
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
