@@ -63,7 +63,7 @@ float distPatrulla = 50.0f;
 float timeValue = (float)glfwGetTime();
 
 
-glm::vec3 posPersonaje4(-473.9f, 0.5f, -48.513f);
+glm::vec3 posPersonaje4(-487.9f, 0.5f, -48.513f);
 float rotPersonaje4 = 90.0f;
 int estadoPersonaje4 = 0;
 float distRecorridaP4 = 0.0f;
@@ -189,24 +189,26 @@ int main() {
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 
 
-	//Modelo de animación
 
+	//Modelo de animación
+	
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
 
 	/*
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
-	*/
+	
 
-	/*
+	
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
 	*/
 	ModelAnim animacionPersonaje4("Animaciones/Personaje5/Walking.fbx");
 	animacionPersonaje4.initShaders(animShader.Program);
+	
 
-
+	
 	Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
@@ -215,25 +217,30 @@ int main() {
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
 
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
+	
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
+
+	
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
 
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
-
+	
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
+	
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
+	
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 
-
+	
 	Model scooterModel("Models/scooter_humanito/scooter.obj");
 	Model humanModel("Models/scooter_humanito/Humano.obj");
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
 	Model Biciestacionamiento((char*)"Models/Biciestacionamiento/Biciestacionamiento.obj");
 
-
+	
 	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
@@ -253,6 +260,11 @@ int main() {
 
 	*/
 
+	
+	//Turbina
+	Model posteTurb((char*)"Models/turb/posteTurb.obj");
+	Model aspas((char*)"Models/turb/aspas.obj");
+	
 
 
 
@@ -288,7 +300,7 @@ int main() {
 	while (!glfwWindowShouldClose(window)) {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
 		glfwPollEvents(); DoMovement();
-
+		float anguloAspas = 100.0f * (float)glfwGetTime();
 		float avanceP4 = velPersonaje4 * deltaTime;
 
 		switch (estadoPersonaje4) {
@@ -666,34 +678,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegB.Draw(lightingShader);
 		*/
-
-
-		// --- SCOOTER  ---
-		/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		scooter.Draw(lightingShader);
-		currentX += spacing;
-
-		// --- scooterMoto  ---
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		scooterMoto.Draw(lightingShader);
-		currentX += spacing;
-		// --- Turbina ---
-		/*
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Turbina.Draw(lightingShader);
-		currentX += spacing;
-		*/
-
-
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -731,14 +716,14 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra1.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra2.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -760,28 +745,28 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra6.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra7.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra8.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -822,6 +807,42 @@ int main() {
 		modelHuman = glm::rotate(modelHuman, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelHuman));
 		humanModel.Draw(lightingShader);
+		
+		//TURBINA 1
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 10.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		posteTurb.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(0.4f, 15.2f, 49.75f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(anguloAspas), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		aspas.Draw(lightingShader);
+
+
+		//TURBINA 2
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(8.0f, 0.0f, 10.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		posteTurb.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::translate(model, glm::vec3(-15.6f, 15.2f, 49.75f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(anguloAspas), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		aspas.Draw(lightingShader);
 
 
 		glBindVertexArray(0);
@@ -861,7 +882,7 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
 
-
+		/*
 		model = glm::mat4(1);
 		model = glm::translate(model, animPos);
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -869,7 +890,7 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje.Draw(animShader);
 
-		/*
+		
 		animShader.Use();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(-1.304f, -45.075f, -8.294f));
@@ -878,9 +899,9 @@ int main() {
 		model = glm::rotate(model, glm::radians(2.267f), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje2.Draw(animShader);
-		*/
+		
 
-		/*
+		
 		// Animacion de humano en la bici
 		model = modelAux;
 		model = glm::translate(model, glm::vec3(0.0f, 6.0f,1.0f));
@@ -889,8 +910,8 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
+		
 		*/
-
 		animShader.Use();
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
@@ -901,7 +922,7 @@ int main() {
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje4.Draw(animShader);
-
+		
 
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
