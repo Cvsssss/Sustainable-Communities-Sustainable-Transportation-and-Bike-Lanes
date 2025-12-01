@@ -37,7 +37,7 @@ public:
     const aiScene* scene;
 
     /* Huesos */
-    static const uint MAX_BONES = 100;
+    static const uint MAX_BONES = 200;
 
     map<string, uint> m_bone_mapping;
     uint m_num_bones = 0;

@@ -48,20 +48,27 @@ bool firstMouse = true;
 
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
 glm::vec3 PosIni(-50.0f, 1.0f, -280.0f);
-// CAMBIALO A:
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 float range = 0.0f;
 float rot = 0.0f;
 float animDesplazamiento = 0.0f;
 float animVelocidad = 2.0f;
 // Variables para la animación de patrulla
-glm::vec3 animPos = glm::vec3(PosIni.x, PosIni.y, PosIni.z); // Posición inicial
-float animRot = 0.0f;   // Rotación actual del modelo (grados)
-int estadoPatrulla = 0; // 0:Adelante, 1:Derecha, 2:Atrás, 3:Izquierda
-float recorrido = 0.0f; // Contador de cuánto ha caminado en el tramo actual
-float distPatrulla = 50.0f; // Distancia antes de dar la vuelta
+glm::vec3 animPos = glm::vec3(PosIni.x, PosIni.y, PosIni.z);
+float animRot = 0.0f;  
+int estadoPatrulla = 0;
+float recorrido = 0.0f; 
+float distPatrulla = 50.0f; 
 
-float timeValue = (float)glfwGetTime(); // Ejemplo de cómo obtener el tiempo
+float timeValue = (float)glfwGetTime(); 
+
+
+glm::vec3 posPersonaje4(-431.0f, 0.5f, -48.513f); 
+float rotPersonaje4 = 90.0f;      
+int estadoPersonaje4 = 0;        
+float distRecorridaP4 = 0.0f;     
+float tamanoCuadrado = 55.0f;     
+float velPersonaje4 = 3.5f;       
 
 // Variables para la bici
 glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, -30.0f); // Posición inicial
@@ -102,7 +109,7 @@ glm::vec3 pointLightPositions[] = {
 
 	// Fila Central (Z cerca de 0)
 	glm::vec3(-95.0f, -2.0f,    0.0f), // Cuadra 4
-	glm::vec3(0.0f, -2.0f,    0.0f), // Cuadra 5 (CENTRO - Luz ambiental alta sobre el parque)
+	glm::vec3(0.0f, -2.0f,    0.0f), // Cuadra 5 
 	glm::vec3(95.0f, -2.0f,    0.0f), // Cuadra 6
 
 	// Fila Delantera (Z positiva)
@@ -186,6 +193,7 @@ int main() {
 	
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
+
 	/*
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
@@ -195,9 +203,11 @@ int main() {
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
 	*/
+	ModelAnim animacionPersonaje4("Animaciones/Personaje5/Walking.fbx");
+	animacionPersonaje4.initShaders(animShader.Program);
 
 
-	//Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
+	Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
@@ -229,9 +239,9 @@ int main() {
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
-
+	*/
 	
-
+	/*
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
@@ -241,8 +251,8 @@ int main() {
 	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
-
 	*/
+	
 	
 	
 	
@@ -279,39 +289,71 @@ int main() {
 		GLfloat currentFrame = glfwGetTime(); deltaTime = currentFrame - lastFrame; lastFrame = currentFrame;
 		glfwPollEvents(); DoMovement();
 
+		float avanceP4 = velPersonaje4 * deltaTime;
+
+		switch (estadoPersonaje4) {
+		case 0: 
+			posPersonaje4.x += avanceP4;
+			rotPersonaje4 = 90.0f;
+			break;
+		case 1: 
+			posPersonaje4.z -= avanceP4;
+			rotPersonaje4 = 180.0f; 
+			break;
+		case 2: 
+			posPersonaje4.x -= avanceP4;
+			rotPersonaje4 = 270.0f; 
+			break;
+		case 3: 
+			posPersonaje4.z += avanceP4;
+			rotPersonaje4 = 0.0f;  
+			break;
+		}
+
+		distRecorridaP4 += avanceP4;
+
+		if (distRecorridaP4 >= tamanoCuadrado) {
+			distRecorridaP4 = 0.0f; 
+			estadoPersonaje4++;    
+
+		
+			if (estadoPersonaje4 > 3) {
+				estadoPersonaje4 = 0;
+			}
+		}
 		animDesplazamiento += animVelocidad * deltaTime;
 		float velocidadReal = animVelocidad * deltaTime;
 
 		switch (estadoPatrulla)
 		{
-		case 0: // Caminar en Z positivo
+		case 0: 
 			animPos.z += velocidadReal;
-			animRot = 0.0f; // Mirando hacia +Z
+			animRot = 0.0f; 
 			break;
-		case 1: // Caminar en X positivo
+		case 1: 
 			animPos.x += velocidadReal;
-			animRot = 90.0f; // Girar 90 grados
+			animRot = 90.0f; 
 			break;
-		case 2: // Caminar en Z negativo
+		case 2:
 			animPos.z -= velocidadReal;
-			animRot = 180.0f; // Mirando hacia atrás
+			animRot = 180.0f;
 			break;
-		case 3: // Caminar en X negativo
+		case 3: 
 			animPos.x -= velocidadReal;
-			animRot = 270.0f; // Mirando hacia izquierda
+			animRot = 270.0f; 
 			break;
 		}
 
-		// Aumentar el contador de distancia recorrida
+		
 		recorrido += velocidadReal;
 
-		// ¿Llegamos a la esquina?
+
 		if (recorrido > distPatrulla)
 		{
-			recorrido = 0.0f; // Reiniciar contador para el siguiente tramo
-			estadoPatrulla++; // Cambiar al siguiente estado/dirección
+			recorrido = 0.0f; 
+			estadoPatrulla++; 
 
-			// Si pasamos del estado 3, volvemos al 0 (bucle infinito)
+
 			if (estadoPatrulla > 3)
 				estadoPatrulla = 0;
 		}
@@ -527,7 +569,7 @@ int main() {
 
 		/*
 		
-		/*
+		
 		//    -------- BICICLETA ------	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, PosBici);
@@ -555,25 +597,9 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cadena.Draw(lightingShader);
 		*/
-		/*
-
-		//      -------------------
-
-
-
-		// --- Bus ---
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Bus.Draw(lightingShader);
-		currentX += spacing;
-		// --- llantas ---
-
 
 		 //------------ PERRO ------------
-		/*
+		
 		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f); 
 		float dogRotAngle = 0.0f;      
 		float movDogHead = 0.0f;        
@@ -589,6 +615,7 @@ int main() {
 		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
 		glm::mat4 modelTemp; 
 
+		/*
 		// BODY (CUERPO) - Matriz Base  
 		model = glm::mat4(1.0f);
 		dogPos.z = dogPos.z + forwardMovement;
@@ -780,13 +807,13 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		extrasCuadra.Draw(lightingShader);
 		
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, busPos);
+		//model = glm::mat4(1.0f);
+		/*model = glm::translate(model, busPos);
 		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Bus.Draw(lightingShader);
-		LlantasBus.Draw(lightingShader);
+		LlantasBus.Draw(lightingShader);*/
 
 		
 		glBindVertexArray(0);
@@ -828,9 +855,9 @@ int main() {
 
 	
 		model = glm::mat4(1);
-		model = glm::translate(model, animPos); // <--- Volvemos a usar animPos
+		model = glm::translate(model, animPos); 
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.02f)); // O la escala que te funcionó en la prueba (ej. 0.1f)
+		model = glm::scale(model, glm::vec3(0.02f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje.Draw(animShader);
 
@@ -855,6 +882,17 @@ int main() {
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
 		*/
+
+		animShader.Use();
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, posPersonaje4); 
+		model = glm::rotate(model, glm::radians(rotPersonaje4), glm::vec3(0.0f, 1.0f, 0.0f)); 
+		model = glm::scale(model, glm::vec3(0.011f, 0.011f, 0.011f));
+
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		animacionPersonaje4.Draw(animShader);
 
 
 		// Dibujo Skybox

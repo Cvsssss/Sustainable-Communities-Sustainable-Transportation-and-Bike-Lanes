@@ -25,15 +25,7 @@ map_Kd Bus_M_Bus_BaseColor.png
 Ni 1.50
 Ks 0.50 0.50 0.50
 Ns 0.06
-newmtl Ch28_BodySG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-Ks 0.00 0.00 0.00
-Ns 98.00
-newmtl Ch28_EyelashesSG
+newmtl Ch07_EyelashesSG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
@@ -41,6 +33,14 @@ Tf 1.00 1.00 1.00
 Ni 1.00
 Ks 0.00 0.00 0.00
 Ns 18.00
+newmtl Ch07_HeelsSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 98.00
 newmtl Cuadra1:Material_001
 illum 4
 Kd 0.00 0.00 0.00
@@ -2519,6 +2519,13 @@ Tf 1.00 1.00 1.00
 Ni 1.50
 Ks 0.00 0.00 0.00
 Ns 10.00
+newmtl Turbina:lambert22SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.26 0.26 0.26
+Tf 1.00 1.00 1.00
+map_Kd Turbina.png
+Ni 1.00
 newmtl banquetaCuadra:initialShadingGroup6
 illum 4
 Kd 0.00 0.00 0.00
@@ -2752,6 +2759,12 @@ map_Kd AZUL.JPG
 Ni 1.00
 Ks 0.50 0.50 0.50
 Ns 0.06
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
 newmtl jardineraCuadra:Material_001
 illum 4
 Kd 0.00 0.00 0.00
