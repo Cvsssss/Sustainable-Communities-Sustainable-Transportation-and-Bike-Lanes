@@ -81,7 +81,7 @@ bool estaGirando = false;
 
 
 bool animacionScooterActiva = false;
-glm::vec3 scooterPosition = glm::vec3(30.0f, 0.3f, 10.5f); // Posición inicial
+glm::vec3 scooterPosition = glm::vec3(0.0f, 0.3f, -50.0f);
 float scooterSpeed = 3.0f;
 
 bool animBusActiva = false;
@@ -96,6 +96,14 @@ float busVelGiro = 40.0f;
 float busDistanciaRecorrida = 0.0f;
 float busAnguloAcumulado = 0.0f;
 float largoCuadra = 60.0f;
+
+
+glm::vec3 scooterPos = glm::vec3(12.0f, 0.3f, 100.0f);
+float scooterRot = 0.0f;         
+int scooterEstado = 0;        
+float scooterDistRecorrida = 0.0f;
+float scooterTamanoCuadrado = 70.0f; 
+float scooterVelocidad = 5.0f;
 // Tiempo
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -199,13 +207,15 @@ int main() {
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
 	*/
+
 	ModelAnim animacionPersonaje4("Animaciones/Personaje5/Walking.fbx");
 	animacionPersonaje4.initShaders(animShader.Program);
 	
 
 	
-	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
+	
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
+	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
@@ -214,12 +224,14 @@ int main() {
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
+	
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
+	
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
-
+	
 	Model scooterModel((char*)"Models/scooter_humanito/scooter.obj");
 	Model humanModel((char*)"Models/scooter_humanito/Humano.obj");
 
@@ -235,6 +247,7 @@ int main() {
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 	*/
 
+	
 	//Perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
@@ -483,10 +496,7 @@ int main() {
 
 		if (animacionScooterActiva)
 		{
-			// Mover en el eje Z (puedes cambiar a X si tu calle va en otra dirección)
 			scooterPosition.z += scooterSpeed * deltaTime;
-
-			// Opcional: Si se va muy lejos, que regrese al inicio (Loop)
 			if (scooterPosition.x < -60.0f)
 			{
 				scooterPosition.x = 60.0f;
@@ -521,6 +531,36 @@ int main() {
 			if (anguloBici >= anguloObjetivo) {
 				anguloBici = anguloObjetivo;
 				estaGirando = false;
+			}
+		}
+
+		float scooterAvance = scooterVelocidad * deltaTime;
+
+		switch (scooterEstado) {
+		case 0: 
+			scooterPos.z += scooterAvance;
+			scooterRot = 0.0f;
+			break;
+		case 1: 
+			scooterPos.x -= scooterAvance;
+			scooterRot = -90.0f;
+			break;
+		case 2:
+			scooterPos.z -= scooterAvance;
+			scooterRot = 180.0f;
+			break;
+		case 3:
+			scooterPos.x += scooterAvance;
+			scooterRot = 90.0f;
+			break;
+		}
+
+		scooterDistRecorrida += scooterAvance;
+		if (scooterDistRecorrida >= scooterTamanoCuadrado) {
+			scooterDistRecorrida = 0.0f;
+			scooterEstado++;
+			if (scooterEstado > 3) {
+				scooterEstado = 0; 
 			}
 		}
 
@@ -593,7 +633,7 @@ int main() {
 		*/
 
 		//------------ PERRO ------------
-
+		
 		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f);
 		float dogRotAngle = 0.0f;
 		float movDogHead = 0.0f;
@@ -671,14 +711,14 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		pisoCuadra.Draw(lightingShader);
-
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		banquetaCuadra.Draw(lightingShader);
-
+		
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -779,11 +819,12 @@ int main() {
 		model = glm::scale(model, glm::vec3(2.3f, 2.3f, 2.3f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Biciestacionamiento.Draw(lightingShader);
+		
 
 		glm::mat4 modelScooter = glm::mat4(1.0f);
-		modelScooter = glm::translate(modelScooter, scooterPosition);
+		modelScooter = glm::translate(modelScooter, scooterPos);
 		modelScooter = glm::scale(modelScooter, glm::vec3(1.5f, 1.5f, 1.5f));
-		modelScooter = glm::rotate(modelScooter, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelScooter = glm::rotate(modelScooter, glm::radians(scooterRot+90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelScooter));
 		scooterModel.Draw(lightingShader);
 
@@ -867,7 +908,7 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.diffuse"), 1.0f, 1.0f, 1.0f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
-
+		
 		
 		model = glm::mat4(1);
 		model = glm::translate(model, animPos);
@@ -918,10 +959,10 @@ int main() {
 }
 
 void DoMovement() {
-	if (keys[GLFW_KEY_W]) camera.ProcessKeyboard(FORWARD, deltaTime);
-	if (keys[GLFW_KEY_S]) camera.ProcessKeyboard(BACKWARD, deltaTime);
-	if (keys[GLFW_KEY_A]) camera.ProcessKeyboard(LEFT, deltaTime);
-	if (keys[GLFW_KEY_D]) camera.ProcessKeyboard(RIGHT, deltaTime);
+	if (keys[GLFW_KEY_W]) camera.ProcessKeyboard(FORWARD, deltaTime+0.2f);
+	if (keys[GLFW_KEY_S]) camera.ProcessKeyboard(BACKWARD, deltaTime + 0.2f);
+		if (keys[GLFW_KEY_A]) camera.ProcessKeyboard(LEFT, deltaTime + 0.2f);
+	if (keys[GLFW_KEY_D]) camera.ProcessKeyboard(RIGHT, deltaTime + 0.2f);
 }
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) glfwSetWindowShouldClose(window, GL_TRUE);
@@ -929,7 +970,9 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
 		animBusActiva = !animBusActiva;
+
 	}
+
 }
 void MouseCallback(GLFWwindow* window, double xPos, double yPos) {
 	if (firstMouse) { lastX = xPos; lastY = yPos; firstMouse = false; }
