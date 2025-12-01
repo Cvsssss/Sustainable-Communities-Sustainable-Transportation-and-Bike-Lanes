@@ -63,7 +63,7 @@ float distPatrulla = 50.0f;
 float timeValue = (float)glfwGetTime();
 
 
-glm::vec3 posPersonaje4(-487.9f, 0.5f, -48.513f);
+glm::vec3 posPersonaje4(-493.9f, 0.5f, -48.513f);
 float rotPersonaje4 = 90.0f;
 int estadoPersonaje4 = 0;
 float distRecorridaP4 = 0.0f;
@@ -220,8 +220,8 @@ int main() {
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 
-	Model scooterModel("Models/scooter_humanito/scooter.obj");
-	Model humanModel("Models/scooter_humanito/Humano.obj");
+	Model scooterModel((char*)"Models/scooter_humanito/scooter.obj");
+	Model humanModel((char*)"Models/scooter_humanito/Humano.obj");
 
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
