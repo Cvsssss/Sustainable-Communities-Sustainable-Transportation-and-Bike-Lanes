@@ -196,11 +196,6 @@ int main() {
 	animacionPersonaje.initShaders(animShader.Program);
 
 	/*
-	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
-	animacionPersonaje2.initShaders(animShader.Program);
-	
-
-	
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
 	*/
@@ -208,8 +203,7 @@ int main() {
 	animacionPersonaje4.initShaders(animShader.Program);
 	
 
-	
-	Model Cuadra((char*)"Models/Cuadra/Cuadra.obj");
+
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
@@ -217,27 +211,22 @@ int main() {
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
 
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
-	
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
-
-	
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
-
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
-	
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
-	
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
-	
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 
 	
 	Model scooterModel("Models/scooter_humanito/scooter.obj");
 	Model humanModel("Models/scooter_humanito/Humano.obj");
+
 	Model Bus((char*)"Models/Bus/Bus.obj");
 	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
+
 	Model Biciestacionamiento((char*)"Models/Biciestacionamiento/Biciestacionamiento.obj");
 
 	
@@ -259,7 +248,6 @@ int main() {
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
 	*/
-
 	
 	//Turbina
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
@@ -889,18 +877,6 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.02f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje.Draw(animShader);
-
-		
-		animShader.Use();
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-1.304f, -45.075f, -8.294f));
-		model = glm::rotate(model, glm::radians(-9.398f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(-1.011f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(2.267f), glm::vec3(0.0f, 0.0f, 1.0f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		animacionPersonaje2.Draw(animShader);
-		
-
 		
 		// Animacion de humano en la bici
 		model = modelAux;
