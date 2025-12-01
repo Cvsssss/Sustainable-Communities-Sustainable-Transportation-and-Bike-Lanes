@@ -55,35 +55,35 @@ float animDesplazamiento = 0.0f;
 float animVelocidad = 2.0f;
 // Variables para la animación de patrulla
 glm::vec3 animPos = glm::vec3(PosIni.x, PosIni.y, PosIni.z);
-float animRot = 0.0f;  
+float animRot = 0.0f;
 int estadoPatrulla = 0;
-float recorrido = 0.0f; 
-float distPatrulla = 50.0f; 
+float recorrido = 0.0f;
+float distPatrulla = 50.0f;
 
-float timeValue = (float)glfwGetTime(); 
+float timeValue = (float)glfwGetTime();
 
 
-glm::vec3 posPersonaje4(-431.0f, 0.5f, -48.513f); 
-float rotPersonaje4 = 90.0f;      
-int estadoPersonaje4 = 0;        
-float distRecorridaP4 = 0.0f;     
-float tamanoCuadrado = 55.0f;     
-float velPersonaje4 = 3.5f;       
+glm::vec3 posPersonaje4(-473.9f, 0.5f, -48.513f);
+float rotPersonaje4 = 90.0f;
+int estadoPersonaje4 = 0;
+float distRecorridaP4 = 0.0f;
+float tamanoCuadrado = 55.0f;
+float velPersonaje4 = 3.5f;
 
 // Variables para la bici
 glm::vec3 PosBici = glm::vec3(0.0f, 0.0f, -30.0f); // Posición inicial
 float rotRueda = 0.0f;
 float velocidadBici = 8.0f;
-float anguloBici = 0.0f;      
+float anguloBici = 0.0f;
 float anguloObjetivo = 0.0f;
-float distRecorrida = 0.0f;   
+float distRecorrida = 0.0f;
 bool estaGirando = false;
 
 
 bool animacionScooterActiva = false;
 glm::vec3 scooterPosition = glm::vec3(30.0f, 0.3f, 10.5f); // Posición inicial
 float scooterSpeed = 3.0f;
- 
+
 bool animBusActiva = false;
 int estadoBus = 0;
 
@@ -91,8 +91,8 @@ glm::vec3 busPos(30.0f, 0.0f, 20.0f);
 float busAngulo = 270.0f;
 float correccionVisual = 90.0f;
 
-float busVelocidad = 10.0f;      
-float busVelGiro = 40.0f;      
+float busVelocidad = 10.0f;
+float busVelGiro = 40.0f;
 float busDistanciaRecorrida = 0.0f;
 float busAnguloAcumulado = 0.0f;
 float largoCuadra = 60.0f;
@@ -188,9 +188,9 @@ int main() {
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.frag");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 
-	
+
 	//Modelo de animación
-	
+
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
 
@@ -198,7 +198,7 @@ int main() {
 	ModelAnim animacionPersonaje2("Animaciones/Personaje3/Sentado.fbx");
 	animacionPersonaje2.initShaders(animShader.Program);
 	*/
-	
+
 	/*
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
@@ -213,34 +213,34 @@ int main() {
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
 	Model crucesCuadra((char*)"Models/Cuadra/crucesCuadra.obj");
 	Model extrasCuadra((char*)"Models/Cuadra/extrasCuadra.obj");
-	
+
 	Model Cuadra1((char*)"Models/Cuadra/Cuadra1.obj");
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
-	
+
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
-	
+
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 
-	Model Bus((char*)"Models/Bus/Bus.obj");
-	Model LlantasBus((char*)"Models/Bus/BusLlantas.obj");
-
 
 	Model scooterModel("Models/scooter_humanito/scooter.obj");
 	Model humanModel("Models/scooter_humanito/Humano.obj");
-	
-	
+	Model Bus((char*)"Models/Bus/Bus.obj");
+	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
+	Model Biciestacionamiento((char*)"Models/Biciestacionamiento/Biciestacionamiento.obj");
+
+
 	/*
 	//BICICLETA
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 	*/
-	
+
 	/*
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
@@ -252,11 +252,11 @@ int main() {
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
 	*/
-	
-	
-	
-	
-	
+
+
+
+
+
 
 
 	// Buffers
@@ -292,31 +292,31 @@ int main() {
 		float avanceP4 = velPersonaje4 * deltaTime;
 
 		switch (estadoPersonaje4) {
-		case 0: 
+		case 0:
 			posPersonaje4.x += avanceP4;
 			rotPersonaje4 = 90.0f;
 			break;
-		case 1: 
+		case 1:
 			posPersonaje4.z -= avanceP4;
-			rotPersonaje4 = 180.0f; 
+			rotPersonaje4 = 180.0f;
 			break;
-		case 2: 
+		case 2:
 			posPersonaje4.x -= avanceP4;
-			rotPersonaje4 = 270.0f; 
+			rotPersonaje4 = 270.0f;
 			break;
-		case 3: 
+		case 3:
 			posPersonaje4.z += avanceP4;
-			rotPersonaje4 = 0.0f;  
+			rotPersonaje4 = 0.0f;
 			break;
 		}
 
 		distRecorridaP4 += avanceP4;
 
 		if (distRecorridaP4 >= tamanoCuadrado) {
-			distRecorridaP4 = 0.0f; 
-			estadoPersonaje4++;    
+			distRecorridaP4 = 0.0f;
+			estadoPersonaje4++;
 
-		
+
 			if (estadoPersonaje4 > 3) {
 				estadoPersonaje4 = 0;
 			}
@@ -326,32 +326,32 @@ int main() {
 
 		switch (estadoPatrulla)
 		{
-		case 0: 
+		case 0:
 			animPos.z += velocidadReal;
-			animRot = 0.0f; 
+			animRot = 0.0f;
 			break;
-		case 1: 
+		case 1:
 			animPos.x += velocidadReal;
-			animRot = 90.0f; 
+			animRot = 90.0f;
 			break;
 		case 2:
 			animPos.z -= velocidadReal;
 			animRot = 180.0f;
 			break;
-		case 3: 
+		case 3:
 			animPos.x -= velocidadReal;
-			animRot = 270.0f; 
+			animRot = 270.0f;
 			break;
 		}
 
-		
+
 		recorrido += velocidadReal;
 
 
 		if (recorrido > distPatrulla)
 		{
-			recorrido = 0.0f; 
-			estadoPatrulla++; 
+			recorrido = 0.0f;
+			estadoPatrulla++;
 
 
 			if (estadoPatrulla > 3)
@@ -377,7 +377,7 @@ int main() {
 
 
 			case 1:
-			{   
+			{
 				float giro1 = 55.0f * deltaTime;
 
 				busPos.x += avance * sin(glm::radians(busAngulo));
@@ -407,7 +407,7 @@ int main() {
 
 			case 3:
 			{
-				float giro2 = 25.0f * deltaTime; 
+				float giro2 = 25.0f * deltaTime;
 
 				busPos.x += avance * sin(glm::radians(busAngulo));
 				busPos.z += avance * cos(glm::radians(busAngulo));
@@ -467,7 +467,7 @@ int main() {
 
 			case 7:
 			{
-				float giro4 = 65.0f * deltaTime; 
+				float giro4 = 65.0f * deltaTime;
 
 				busPos.x += avance * sin(glm::radians(busAngulo));
 				busPos.z += avance * cos(glm::radians(busAngulo));
@@ -478,15 +478,13 @@ int main() {
 				if (busAnguloAcumulado >= 90.0f) {
 					busAngulo = 270.0f;
 					busAnguloAcumulado = 0.0f;
-					estadoBus = 0; 
+					estadoBus = 0;
 				}
 			}
 			break;
 			}
 		}
-		// --- ANIMACIÓN SCOOTER ---
-		       // Estado: false = quieto, true = moviéndose
-		                  // Velocidad de movimiento
+
 		if (animacionScooterActiva)
 		{
 			// Mover en el eje Z (puedes cambiar a X si tu calle va en otra dirección)
@@ -509,12 +507,12 @@ int main() {
 			PosBici.x += avance * sin(glm::radians(anguloBici));
 			PosBici.z += avance * cos(glm::radians(anguloBici));
 			distRecorrida += avance;
-			rotRueda -= avance; 
+			rotRueda -= avance;
 			// Aqui cambiar el 50 por el valor de distancia al que quieran que gire la bici 
 			if (distRecorrida >= 30.0f) {
-				distRecorrida = 0.0f;      
-				estaGirando = true;        
-				anguloObjetivo += 90.0f; 
+				distRecorrida = 0.0f;
+				estaGirando = true;
+				anguloObjetivo += 90.0f;
 			}
 		}
 
@@ -568,9 +566,9 @@ int main() {
 		//Carga de Modelos
 
 		/*
-		
-		
-		//    -------- BICICLETA ------	
+
+
+		//    -------- BICICLETA ------
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, PosBici);
 		model = glm::rotate(model, glm::radians(anguloBici), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -598,25 +596,25 @@ int main() {
 		cadena.Draw(lightingShader);
 		*/
 
-		 //------------ PERRO ------------
-		
-		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f); 
-		float dogRotAngle = 0.0f;      
-		float movDogHead = 0.0f;        
-		float movDogTail = 0.0f;        
+		//------------ PERRO ------------
+
+		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f);
+		float dogRotAngle = 0.0f;
+		float movDogHead = 0.0f;
+		float movDogTail = 0.0f;
 		// Variables para el Movimiento Constante
-		float timeValue = (float)glfwGetTime(); 
-		float forwardSpeed = 0.5f;              
-		float animationSpeed = 5.0f;            
-		float legMaxAngle = 20.0f;              
-		float tailMaxAngle = 15.0f;             
-		float forwardMovement = forwardSpeed * timeValue; 
+		float timeValue = (float)glfwGetTime();
+		float forwardSpeed = 0.5f;
+		float animationSpeed = 5.0f;
+		float legMaxAngle = 20.0f;
+		float tailMaxAngle = 15.0f;
+		float forwardMovement = forwardSpeed * timeValue;
 		float legMovement = legMaxAngle * sin(animationSpeed * timeValue);
 		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
-		glm::mat4 modelTemp; 
+		glm::mat4 modelTemp;
 
 		/*
-		// BODY (CUERPO) - Matriz Base  
+		// BODY (CUERPO) - Matriz Base
 		model = glm::mat4(1.0f);
 		dogPos.z = dogPos.z + forwardMovement;
 		model = glm::translate(model, dogPos);
@@ -625,43 +623,43 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		DogBody.Draw(lightingShader);
 
-		// 2. HEAD (CABEZA)  
+		// 2. HEAD (CABEZA)
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.093f, 0.208f)); // Traslación Local de tu modelo
 		modelTemp = glm::rotate(modelTemp, glm::radians(movDogHead), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogHead.Draw(lightingShader);
 
-		// 3. TAIL (COLA) 
+		// 3. TAIL (COLA)
 		modelTemp = model;
-		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.026f, -0.288f)); 
+		modelTemp = glm::translate(modelTemp, glm::vec3(0.0f, 0.026f, -0.288f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(movDogTail), glm::vec3(0.0f, 0.0f, -1.0f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(tailMovement), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogTail.Draw(lightingShader);
 
-		//  4. FRONT LEFT LEG  
+		//  4. FRONT LEFT LEG
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.112f, -0.044f, 0.074f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegF.Draw(lightingShader);
 
-		//  5. FRONT RIGHT LEG 
+		//  5. FRONT RIGHT LEG
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(-0.111f, -0.055f, 0.074f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogRightLegF.Draw(lightingShader);
 
-		//  6. BACK LEFT LEG (PATA TRASERA IZQUIERDA) - Contrafase  
+		//  6. BACK LEFT LEG (PATA TRASERA IZQUIERDA) - Contrafase
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(0.082f, -0.046f, -0.218f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(-legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento negativo/contrafase
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelTemp));
 		DogLeftLegB.Draw(lightingShader);
 
-		//  7. BACK RIGHT LEG (PATA TRASERA DERECHA) - Caminata  
+		//  7. BACK RIGHT LEG (PATA TRASERA DERECHA) - Caminata
 		modelTemp = model;
 		modelTemp = glm::translate(modelTemp, glm::vec3(-0.083f, -0.057f, -0.231f));
 		modelTemp = glm::rotate(modelTemp, glm::radians(legMovement), glm::vec3(1.0f, 0.0f, 0.0f)); // Movimiento positivo
@@ -671,24 +669,15 @@ int main() {
 
 
 		// --- SCOOTER  ---
-		// variables 
-		
-		glm::mat4 modelScooter = glm::mat4(1.0f);
-		modelScooter = glm::translate(modelScooter, scooterPosition);
-		modelScooter = glm::scale(modelScooter, glm::vec3(1.5f, 1.5f, 1.5f));
-		modelScooter = glm::rotate(modelScooter, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelScooter));
-		scooterModel.Draw(lightingShader);
-
-		glm::mat4 modelHuman = modelScooter;
-		modelHuman = glm::translate(modelHuman, glm::vec3(0.25f, 0.270f, 0.45f));
-		modelHuman = glm::scale(modelHuman, glm::vec3(1.42f, 1.86f, 1.20f));
-		modelHuman = glm::rotate(modelHuman, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelHuman));
-		humanModel.Draw(lightingShader);
+		/*
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		scooter.Draw(lightingShader);
+		currentX += spacing;
 
 		// --- scooterMoto  ---
-		/*
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -703,15 +692,15 @@ int main() {
 		currentX += spacing;
 		*/
 
-	
-		
+
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		pisoCuadra.Draw(lightingShader);
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -719,14 +708,14 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		banquetaCuadra.Draw(lightingShader);
 
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		jardineraCuadra.Draw(lightingShader);
-		
+
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -735,7 +724,7 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		crucesCuadra.Draw(lightingShader);
 
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -764,14 +753,14 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra4.Draw(lightingShader);
 
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -799,23 +788,42 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra9.Draw(lightingShader);
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		extrasCuadra.Draw(lightingShader);
-		
-		//model = glm::mat4(1.0f);
-		/*model = glm::translate(model, busPos);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, busPos);
 		model = glm::rotate(model, glm::radians(busAngulo + correccionVisual), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.5f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Bus.Draw(lightingShader);
-		LlantasBus.Draw(lightingShader);*/
+		LlantasBus.Draw(lightingShader);
 
-		
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.3f, 2.3f, 2.3f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Biciestacionamiento.Draw(lightingShader);
+
+		glm::mat4 modelScooter = glm::mat4(1.0f);
+		modelScooter = glm::translate(modelScooter, scooterPosition);
+		modelScooter = glm::scale(modelScooter, glm::vec3(1.5f, 1.5f, 1.5f));
+		modelScooter = glm::rotate(modelScooter, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelScooter));
+		scooterModel.Draw(lightingShader);
+
+		glm::mat4 modelHuman = modelScooter;
+		modelHuman = glm::translate(modelHuman, glm::vec3(0.25f, 0.270f, 0.45f));
+		modelHuman = glm::scale(modelHuman, glm::vec3(1.42f, 1.86f, 1.20f));
+		modelHuman = glm::rotate(modelHuman, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelHuman));
+		humanModel.Draw(lightingShader);
+
+
 		glBindVertexArray(0);
 		// Dibujo Luces
 		lampShader.Use();
@@ -853,9 +861,9 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
 
-	
+
 		model = glm::mat4(1);
-		model = glm::translate(model, animPos); 
+		model = glm::translate(model, animPos);
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.02f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -873,7 +881,7 @@ int main() {
 		*/
 
 		/*
-		// Animacion de humano en la bici 
+		// Animacion de humano en la bici
 		model = modelAux;
 		model = glm::translate(model, glm::vec3(0.0f, 6.0f,1.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -887,9 +895,9 @@ int main() {
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, posPersonaje4); 
-		model = glm::rotate(model, glm::radians(rotPersonaje4), glm::vec3(0.0f, 1.0f, 0.0f)); 
-		model = glm::scale(model, glm::vec3(0.011f, 0.011f, 0.011f));
+		model = glm::translate(model, posPersonaje4);
+		model = glm::rotate(model, glm::radians(rotPersonaje4), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.015f, 0.015f, 0.015f));
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje4.Draw(animShader);
@@ -924,18 +932,6 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
 		animBusActiva = !animBusActiva;
-	}
-
-	// Al presionar 8: Activar animación
-	if (key == GLFW_KEY_8 && action == GLFW_PRESS)
-	{
-		animacionScooterActiva = true;
-	}
-
-	// Al presionar 9: Detener animación
-	if (key == GLFW_KEY_9 && action == GLFW_PRESS)
-	{
-		animacionScooterActiva = false;
 	}
 }
 void MouseCallback(GLFWwindow* window, double xPos, double yPos) {
