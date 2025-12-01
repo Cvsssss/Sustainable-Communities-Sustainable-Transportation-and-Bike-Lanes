@@ -48,7 +48,6 @@ bool firstMouse = true;
 
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
 glm::vec3 PosIni(-50.0f, 1.0f, -280.0f);
-// CAMBIALO A:
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 float range = 0.0f;
 float rot = 0.0f;
@@ -64,7 +63,7 @@ float distPatrulla = 50.0f;
 float timeValue = (float)glfwGetTime(); 
 
 
-glm::vec3 posPersonaje4(-417.424f, 0.5f, -48.513f); 
+glm::vec3 posPersonaje4(-429.0f, 0.5f, -48.513f); 
 float rotPersonaje4 = 90.0f;      
 int estadoPersonaje4 = 0;        
 float distRecorridaP4 = 0.0f;     
@@ -589,7 +588,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Bus.Draw(lightingShader);
+		//Bus.Draw(lightingShader);
 		currentX += spacing;
 		// --- llantas ---
 
