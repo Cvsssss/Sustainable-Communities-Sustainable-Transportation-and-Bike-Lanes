@@ -63,7 +63,7 @@ float distPatrulla = 50.0f;
 float timeValue = (float)glfwGetTime(); 
 
 
-glm::vec3 posPersonaje4(-429.0f, 0.5f, -48.513f); 
+glm::vec3 posPersonaje4(-431.0f, 0.5f, -48.513f); 
 float rotPersonaje4 = 90.0f;      
 int estadoPersonaje4 = 0;        
 float distRecorridaP4 = 0.0f;     
@@ -232,9 +232,9 @@ int main() {
 	Model llantasbici((char*)"Models/BICI/llantasbici.obj");
 	Model cadena((char*)"Models/BICI/cadena.obj");
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
-
+	*/
 	
-
+	/*
 	//perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
@@ -244,8 +244,8 @@ int main() {
 	Model DogRightLegF((char*)"Models/perro/DogRightLegF.obj");
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
-
 	*/
+	
 	
 	
 	
@@ -548,7 +548,7 @@ int main() {
 
 		/*
 		
-		/*
+		
 		//    -------- BICICLETA ------	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, PosBici);
@@ -576,25 +576,9 @@ int main() {
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		cadena.Draw(lightingShader);
 		*/
-		
-
-		//      -------------------
-
-
-
-		// --- Bus ---
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(currentX, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
-		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		//Bus.Draw(lightingShader);
-		currentX += spacing;
-		// --- llantas ---
-
 
 		 //------------ PERRO ------------
-		/*
+		
 		glm::vec3 dogPos = glm::vec3(5.0f, 0.0f, 5.0f); 
 		float dogRotAngle = 0.0f;      
 		float movDogHead = 0.0f;        
@@ -610,6 +594,7 @@ int main() {
 		float tailMovement = tailMaxAngle * sin(8.0f * timeValue);
 		glm::mat4 modelTemp; 
 
+		/*
 		// BODY (CUERPO) - Matriz Base  
 		model = glm::mat4(1.0f);
 		dogPos.z = dogPos.z + forwardMovement;
