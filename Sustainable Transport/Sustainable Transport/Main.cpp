@@ -191,19 +191,19 @@ int main() {
 
 
 	//Modelo de animación
-	/*
+	
 	ModelAnim animacionPersonaje("Animaciones/Personaje2/Walking.fbx");
 	animacionPersonaje.initShaders(animShader.Program);
 
-	
+	/*
 	ModelAnim animacionPersonaje3("Animaciones/Personaje4/Pedaleando.fbx");
 	animacionPersonaje3.initShaders(animShader.Program);
-	
+	*/
 	ModelAnim animacionPersonaje4("Animaciones/Personaje5/Walking.fbx");
 	animacionPersonaje4.initShaders(animShader.Program);
-	*/
+	
 
-	/*
+	
 	Model pisoCuadra((char*)"Models/Cuadra/pisoCuadra.obj");
 	Model banquetaCuadra((char*)"Models/Cuadra/banquetaCuadra.obj");
 	Model jardineraCuadra((char*)"Models/Cuadra/jardineraCuadra.obj");
@@ -214,15 +214,12 @@ int main() {
 	Model Cuadra2((char*)"Models/Cuadra/Cuadra2.obj");
 	Model Cuadra3((char*)"Models/Cuadra/Cuadra3.obj");
 	Model Cuadra4((char*)"Models/Cuadra/Cuadra4.obj");
-	*/
 	Model Cuadra5((char*)"Models/Cuadra/Cuadra5.obj");
-	/*
 	Model Cuadra6((char*)"Models/Cuadra/Cuadra6.obj");
 	Model Cuadra7((char*)"Models/Cuadra/Cuadra7.obj");
 	Model Cuadra8((char*)"Models/Cuadra/Cuadra8.obj");
 	Model Cuadra9((char*)"Models/Cuadra/Cuadra9.obj");
 
-	
 	Model scooterModel("Models/scooter_humanito/scooter.obj");
 	Model humanModel("Models/scooter_humanito/Humano.obj");
 
@@ -230,7 +227,6 @@ int main() {
 	Model LlantasBus((char*)"Models/Bus/LlantasBus.obj");
 
 	Model Biciestacionamiento((char*)"Models/Biciestacionamiento/Biciestacionamiento.obj");
-	*/
 	
 	/*
 	//BICICLETA
@@ -239,8 +235,7 @@ int main() {
 	Model cuerpo((char*)"Models/BICI/cuerpo.obj");
 	*/
 
-	
-	//perro
+	//Perro
 	Model DogBody((char*)"Models/perro/DogBody.obj");
 	Model DogHead((char*)"Models/perro/DogHead.obj");
 	Model DogLeftLegB((char*)"Models/perro/DogLeftLegB.obj");
@@ -250,11 +245,11 @@ int main() {
 	Model DogTail((char*)"Models/perro/DogTail.obj");
 
 	
-	/*
+	
 	//Turbina
 	Model posteTurb((char*)"Models/turb/posteTurb.obj");
 	Model aspas((char*)"Models/turb/aspas.obj");
-	*/
+	
 
 
 
@@ -669,7 +664,7 @@ int main() {
 		
 		
 
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -728,7 +723,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra4.Draw(lightingShader);
-		*/
+		
 
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
@@ -736,7 +731,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadra5.Draw(lightingShader);
-		/*
+		
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
 		model = glm::translate(model, glm::vec3(-3.91f, 0.0f, 7.0f));
@@ -834,7 +829,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(anguloAspas), glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		aspas.Draw(lightingShader);
-		*/
+		
 
 		glBindVertexArray(0);
 		// Dibujo Luces
@@ -873,7 +868,7 @@ int main() {
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.specular"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(animShader.Program, "light.direction"), 0.0f, -1.0f, -1.0f);
 
-		/*
+		
 		model = glm::mat4(1);
 		model = glm::translate(model, animPos);
 		model = glm::rotate(model, glm::radians(animRot), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -881,6 +876,7 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje.Draw(animShader);
 		
+		/*
 		// Animacion de humano en la bici
 		model = modelAux;
 		model = glm::translate(model, glm::vec3(0.0f, 6.0f,1.0f));
@@ -889,6 +885,7 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje3.Draw(animShader);
 		glBindVertexArray(0);
+		*/
 		
 		
 		animShader.Use();
@@ -901,7 +898,7 @@ int main() {
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		animacionPersonaje4.Draw(animShader);
-		*/
+		
 
 		// Dibujo Skybox
 		glDepthFunc(GL_LEQUAL); skyboxShader.Use();
